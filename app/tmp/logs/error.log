@@ -1,0 +1,65 @@
+2016-12-28 15:21:53 Error: [MissingControllerException] Controller class LgoutController could not be found.
+Exception Attributes: array (
+  'class' => 'LgoutController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/lgout
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-12-28 15:21:57 Error: [MissingControllerException] Controller class LogoutController could not be found.
+Exception Attributes: array (
+  'class' => 'LogoutController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/logout
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-12-29 16:06:23 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-12-29 16:21:12 Error: Fatal Error (64): Can't use method return value in write context in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\KennelsController.php, line 52]
+2016-12-29 16:21:12 Error: [FatalErrorException] Can't use method return value in write context
+Request URL: /bop/bop-updated/beta/kennel
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(64, 'Can't use metho...', 'D:\\xampp\\htdocs...', 52)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', 'D:\\xampp\\htdocs...', 52, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', 'D:\\xampp\\htdocs...', 52, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-29 16:21:30 Error: Fatal Error (64): Can't use method return value in write context in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\KennelsController.php, line 52]
+2016-12-29 16:21:30 Error: [FatalErrorException] Can't use method return value in write context
+Request URL: /bop/bop-updated/beta/kennel
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(64, 'Can't use metho...', 'D:\\xampp\\htdocs...', 52)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', 'D:\\xampp\\htdocs...', 52, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', 'D:\\xampp\\htdocs...', 52, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-29 18:22:58 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 17:06:07 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

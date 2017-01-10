@@ -1,0 +1,9 @@
+[14-Jul-2016 02:20:03 UTC] PHP Notice:  Use of undefined constant FLASE - assumed 'FLASE' in /home/purgitory/public_html/beta/app/webroot/timthumb.php on line 15
+[14-Jul-2016 02:20:03 UTC] PHP Notice:  Use of undefined constant FLASE - assumed 'FLASE' in /home/purgitory/public_html/beta/app/webroot/timthumb.php on line 15
+[14-Jul-2016 02:20:03 UTC] PHP Notice:  Undefined variable: gmdate_modified in /home/purgitory/public_html/beta/app/webroot/timthumb.php on line 531
+[14-Jul-2016 02:20:03 UTC] PHP Notice:  Undefined variable: gmdate_expires in /home/purgitory/public_html/beta/app/webroot/timthumb.php on line 534
+[14-Jul-2016 02:20:03 UTC] PHP Notice:  Undefined variable: gmdate_modified in /home/purgitory/public_html/beta/app/webroot/timthumb.php on line 531
+[14-Jul-2016 02:20:03 UTC] PHP Notice:  Undefined variable: gmdate_expires in /home/purgitory/public_html/beta/app/webroot/timthumb.php on line 534
+[14-Jul-2016 02:20:03 UTC] PHP Notice:  Use of undefined constant FLASE - assumed 'FLASE' in /home/purgitory/public_html/beta/app/webroot/timthumb.php on line 15
+[14-Jul-2016 02:20:03 UTC] PHP Notice:  Undefined variable: gmdate_modified in /home/purgitory/public_html/beta/app/webroot/timthumb.php on line 531
+[14-Jul-2016 02:20:03 UTC] PHP Notice:  Undefined variable: gmdate_expires in /home/purgitory/public_html/beta/app/webroot/timthumb.php on line 534

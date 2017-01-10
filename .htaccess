@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteRule    ^$ app/webroot/    [L]
+   RewriteRule    (.*) app/webroot/$1 [L]   	memory_limit = 32M	upload_max_filesize = 24M	post_max_size = 32M
+</IfModule>
+
+
+AddType application/vnd.ms-fontobject .eot
+AddType application/octet-stream .otf .ttf
+AddType application/x-font-woff .woff
