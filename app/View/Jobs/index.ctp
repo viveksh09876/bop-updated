@@ -76,7 +76,7 @@
                <thead>
                   <tr>
                      <th>ID</th>
-                     <th>TRAINING AMOUNT</th>
+                     <th>TRAINING AMOUNT (Clicks)</th>
                      <th>TRAINING CATEGORY</th>
                      <th>AMOUNT</th>
                      <th>APPLY/ACCEPT</th>

@@ -22,6 +22,19 @@
             }
         </style>
         <div class="row">
+			<?php if(!empty($display_alerts)){ ?>
+							<div class="display_alerts panel panel-default" style="margin-left:52px; margin-right: 16px">
+								<div class="panel-heading">Alert Messages</div>
+								<div class="panel-body">
+								<ul>
+									<?php foreach($display_alerts as $d_alert){ ?>
+									<li style="color: <?php echo $d_alert['color']; ?>"><?php echo $d_alert['msg']; ?></li>
+									<?php } ?>
+								</ul>
+								</div>
+							</div>							
+							<?php } ?>
+						
             <div class="col-lg-8 pt">
 
 
@@ -146,6 +159,7 @@
                     </script>
                     <div class="">
                         <div class="row">
+							
                             <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 bhoechie-tab-container">
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
                                     <div class="list-group">

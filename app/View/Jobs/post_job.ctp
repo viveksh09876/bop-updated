@@ -77,11 +77,11 @@
       <div class="middle-tab-container">
       <?php if($this->get('canBuy')=='true'){ ?>
       
-      <p>HERE YOU CAN POST A JOB! FOR DOG TRAINING IN CONFIRMATION, AGILITY, OBIDENCE AND RALLY..</p>
+      <p>HERE YOU CAN POST A JOB! FOR DOG TRAINING IN CONFORMATION, AGILITY, OBIDENCE AND RALLY..</p>
       <ul class="no-ul-style">
          <?php echo $this->Form->create('Job'); ?>
          <li><label class="full">JOB TITLE </label><?php echo $this->Form->input('title',array('label'=>false,'div'=>false,'class'=>'required')); ?></li>
-         <li><input type="checkbox" value="confirmation" name="data[Job][categories][]" class="required"/><label>CONFIRMATION</label></li>
+         <li><input type="checkbox" value="conformation" name="data[Job][categories][]" class="required"/><label>CONFORMATION</label></li>
          <li><input type="checkbox"  value="agilty" name="data[Job][categories][]" class="required" /><label>AGILITY</label></li>
          <li><input type="checkbox"  value="odedience" name="data[Job][categories][]"  class="required"/><label>OBEDIENCE</label></li>
          <li><input type="checkbox"  value="rally" name="data[Job][categories][]"  class="required"/><label>RALLY</label></li>

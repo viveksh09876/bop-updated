@@ -81,6 +81,8 @@ border-top-left-radius: 2px;
     color: #fff!important;
     font-size: 20px;
 }
+
+table td{ text-align: center; }
                     </style>
 <!--sidebar start-->
 
@@ -95,14 +97,15 @@ border-top-left-radius: 2px;
       <div class="job-page" style="padding-top:20px;">       
             <?php echo $this->Session->flash(); ?>
         <div class="table-responsive" style="padding-left:20px;padding-right:20px;">
-        <table id="applied_jobs" class="display" >
+        <table id="applied_jobs" class="display">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>TRAINING AMOUNT</th>
+                    <th>TRAINING AMOUNT (Clicks)</th>
+					<th>PROGRESS (Clicks)</th>
                     <th>TRAINING CATEGORY</th>
                     <th>AMOUNT</th>
-                    <th>Status</th>
+                    <th>STATUS</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -119,15 +122,7 @@ border-top-left-radius: 2px;
 
         $('#applied_jobs').DataTable({
             "ajax": '<?php echo $this->webroot; ?>jobs/getappliedjobs',
-"autoWidth": false,
-"columns": [
-    { "width": "5%" },
-{ "width": "30%" },
-{ "width": "40%" },
-{ "width": "20%" },
-{ "width": "20%" }
-    
-  ]
+"autoWidth": false
         });
 });
 </script>

@@ -165,6 +165,12 @@ $this->set("banners",$this->ManageBanner->find("first"));
            
            
            if($this->AppliedJob->saveField('status',$status)){
+			   
+			   if($status == 'Accepted') {
+					$this->Job->id = $job_id;
+					$this->Job->save(array('status' => 1));
+			   }
+							   
                $this->Session->setFlash(__('Applicant '.$status.' Successfully. '),'default',array('class'=>'success'));
            }else{
                $this->Session->setFlash(__('Action could not be applied please try again later. '),'default',array('class'=>'error'));
@@ -295,11 +301,15 @@ $this->set("banners",$this->ManageBanner->find("first"));
         }
         
         function getappliedjobs() {
-        $applied_jobs = $this->AppliedJob->find('all', array('conditions' => array('AppliedJob.applied_by' => $this->Auth->user('id'))));
+			
+		$this->AppliedJob->bindModel(array('belongsTo' => array('Job' => array('className' => 'Job', 'foreignKey' => 'job_id' ))));
+        $applied_jobs = $this->AppliedJob->find('all', array('conditions' => array('AppliedJob.applied_by' =>
+		$this->Auth->user('id'))));
+					
         $i = 1;
-
-        $data = '{
-              "data": [';
+		
+		$arr = array(); $j = 0;
+		
         foreach ($applied_jobs as $aj) {
         	$categories = $aj['Job']['categories'];
         	$markComplete = "";
@@ -309,7 +319,7 @@ $this->set("banners",$this->ManageBanner->find("first"));
         		$categories = '';
         		$i = 1;
         		foreach ($cats as $category){
-        			$categories .= "<a href='".$this->webroot.'kennels/training/'.$category.'/'.$aj["Job"]["game_breed_id"]."'>".$category."</a>";
+        			$categories .= "<a href='".$this->webroot.'kennels/training/'.$category.'/'.$aj["Job"]["game_breed_id"].'/'.$aj["AppliedJob"]["id"]."'>".$category."</a>";
         			if($i < count($cats)){
         				$categories .= ',';
         			}
@@ -321,22 +331,40 @@ $this->set("banners",$this->ManageBanner->find("first"));
         			$aj['AppliedJob']['status'] = 'In Progress';
         		}
         	}
-            $data .= '[
-                  "' . $aj['Job']['id'] . '",
-                  "' . $aj['Job']['amount_of_training'] . '",
-                  "' . $categories . '",
-                  "$' . $aj['Job']['salary'] . '",
-                  "'. $aj['AppliedJob']['status'] .'",
-                  "'. $markComplete.'"
-			]';
-            if ($i < count($applied_jobs)) {
-                $data .= ',';
-            }
+			
+			$job_link = "<a href='".$this->webroot.'kennels/training/'.$category.'/'.$aj["Job"]["game_breed_id"].'/'.$aj["AppliedJob"]["id"]."'>Visit Training Centre</a>";
+			
+			$job_status = 'Applied';
+			if($aj['Job']['status'] == 1) {
+				$job_status = 'Accepted';
+				$markComplete = $job_link;
+			}else if($aj['Job']['status'] == 2) {
+				$job_status = 'In Progress';
+				$markComplete = $job_link;
+			}else if($aj['Job']['status'] == 3) {
+				$job_status = 'Completed';
+			}
+			
+			
+			$arr[$j] = array(
+							$aj['Job']['id'],
+							$aj['Job']['training_clicks'],
+							$aj['Job']['progress'],
+							$categories,
+							$aj['Job']['salary'],
+							$job_status,
+							$markComplete
+						);
+			
+           
             $i++;
+			
+			$j++;
         }
-        $data .= ']}';
-
-        echo $data;
+        
+		$data = array('data' => $arr); 
+		
+        echo json_encode($data);
         die;
     }
 
@@ -351,7 +379,7 @@ function getalljobs() {
 
             $data .= '[
                   "' . $aj['Job']['id'] . '",
-                  "' . $aj['Job']['amount_of_training'] . '",
+                  "' . $aj['Job']['training_clicks'] . '",
                   "' . $aj['Job']['categories'] . '",
                   "$' . $aj['Job']['salary'] . '",
                   "<a href='.$this->webroot.'jobs/apply/'.$aj['Job']['id'].' class=btn btn-primary>APPLY</a>"

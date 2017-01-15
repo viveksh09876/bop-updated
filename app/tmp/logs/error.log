@@ -63,3 +63,921 @@ Request URL: /bop/bop-updated/beta/favicon.ico
 Stack Trace:
 #0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-01-14 06:06:43 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:09:11 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:09:32 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:09:57 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:09:57 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:12:17 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:12:22 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:12:22 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:14:04 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:14:08 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:14:08 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:17:22 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:17:45 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:17:45 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:17:57 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:17:57 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 06:17:58 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:18:02 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:18:08 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:18:12 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:18:15 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:18:18 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 06:18:24 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 07:21:38 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:21:38 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:21:56 Error: Fatal Error (4): syntax error, unexpected '$applied_jobs' (T_VARIABLE) in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\JobsController.php, line 300]
+2017-01-14 07:21:56 Error: [FatalErrorException] syntax error, unexpected '$applied_jobs' (T_VARIABLE)
+Request URL: /bop/bop-updated/beta/jobs/applied_jobs
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 300)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 300, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 300, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-01-14 07:21:56 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:22:24 Error: Fatal Error (4): syntax error, unexpected '$applied_jobs' (T_VARIABLE) in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\JobsController.php, line 300]
+2017-01-14 07:22:24 Error: [FatalErrorException] syntax error, unexpected '$applied_jobs' (T_VARIABLE)
+Request URL: /bop/bop-updated/beta/jobs/applied_jobs
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 300)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 300, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 300, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-01-14 07:22:28 Error: Fatal Error (4): syntax error, unexpected '$applied_jobs' (T_VARIABLE) in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\JobsController.php, line 300]
+2017-01-14 07:22:28 Error: [FatalErrorException] syntax error, unexpected '$applied_jobs' (T_VARIABLE)
+Request URL: /bop/bop-updated/beta/jobs/applied_jobs
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 300)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 300, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 300, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-01-14 07:22:39 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:22:40 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:23:50 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:23:50 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:27:02 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:27:02 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:27:35 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:27:35 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:28:10 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:28:10 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:28:13 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:28:13 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:30:59 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:30:59 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:32:19 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:32:19 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:33:00 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:33:00 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:33:41 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:33:41 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:34:15 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:34:15 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:34:32 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:34:32 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:38:26 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:38:26 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:39:24 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:39:24 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:40:41 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:40:41 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:41:11 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:41:11 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:41:27 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:41:27 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:41:28 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:41:28 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:42:37 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:42:37 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 07:46:52 Error: Fatal Error (4): syntax error, unexpected '}' in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\JobsController.php, line 172]
+2017-01-14 07:46:52 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /bop/bop-updated/beta/jobs/applied_jobs
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 172)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 172, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 172, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-01-14 07:51:04 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 07:53:08 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 07:53:56 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 07:55:20 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 07:55:28 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 07:55:58 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 07:58:09 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 07:59:35 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:09:11 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:10:03 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:10:06 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:12:30 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:12:34 Error: Fatal Error (1): Call to undefined function int() in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\KennelsController.php, line 1093]
+2017-01-14 08:12:34 Error: [FatalErrorException] Call to undefined function int()
+Request URL: /bop/bop-updated/beta/kennels/train_now/1/stacking/1/confirmation
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'D:\\xampp\\htdocs...', 1093)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'D:\\xampp\\htdocs...', 1093, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'D:\\xampp\\htdocs...', 1093, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-01-14 08:12:34 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 08:12:48 Error: Fatal Error (1): Call to a member function save() on a non-object in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\KennelsController.php, line 1096]
+2017-01-14 08:12:48 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /bop/bop-updated/beta/kennels/train_now/1/stacking/1/confirmation
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'D:\\xampp\\htdocs...', 1096)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'D:\\xampp\\htdocs...', 1096, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'D:\\xampp\\htdocs...', 1096, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-01-14 08:13:25 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:14:49 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:15:36 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:31:19 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:31:22 Error: [MissingActionException] Action KennelsController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'KennelsController',
+  'action' => 'img',
+)
+Request URL: /bop/bop-updated/beta/kennels/img/kennel-bg.png
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(KennelsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-01-14 08:38:27 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 08:38:27 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 08:38:48 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 08:38:48 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 15:11:22 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 15:11:22 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-14 15:36:05 Error: Fatal Error (4): syntax error, unexpected '{' in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\KennelsController.php, line 49]
+2017-01-14 15:36:05 Error: [FatalErrorException] syntax error, unexpected '{'
+Request URL: /bop/bop-updated/beta/kennel
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 49)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 49, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 49, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

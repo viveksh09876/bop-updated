@@ -89,7 +89,8 @@
             <thead>
                <tr>
                   <th>ID</th>
-                  <th>TRAINING AMOUNT</th>
+                  <th>Total TRAINING AMOUNT (Clicks)</th>
+				  <th>Pending TRAINING AMOUNT (Clicks)</th>
                   <th>TRAINING CATEGORY</th>
                   <th>AMOUNT</th>
                   <th>Action</th>
@@ -100,12 +101,15 @@
                   foreach($MyPostedJobs as $aj):?>
                <tr>
                   <td>ID#<?php echo $aj['Job']['id']; ?></td>
-                  <td><?php echo $aj['Job']['amount_of_training']; ?></td>
+                  <td style="text-align:center;"><?php echo $aj['Job']['training_clicks']; ?></td>
+				  <td style="text-align:center;"><?php echo $aj['Job']['training_clicks'] - $aj['Job']['progress']; ?></td>
                   <td><?php echo $aj['Job']['categories']; ?></td>
                   <td>$<?php echo $aj['Job']['salary']; ?></td>
                   <td>
+					<?php if($aj['Job']['status'] == 0){ ?>
                      <a class="btn btn-primary" href="javascript:void(0)" onclick="show_responses(this);">
-                        View Responses
+                        View Responses</a>
+					<?php }elseif ($aj['Job']['status'] == 1){ echo 'Accepted';	}elseif ($aj['Job']['status'] == 2){ echo 'In Progress';	}elseif ($aj['Job']['status'] == 3){ echo 'Completed'; }	?>
                   </td>
                </tr>
                <tr class="responses" style="display:none">

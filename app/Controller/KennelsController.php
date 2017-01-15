@@ -14,7 +14,7 @@ App::uses('Controller', 'Controller');
 class KennelsController extends AppController {
 
     public $layout = 'front';
-    public $uses = array('GameBreed', 'User', 'Breed', 'DogSkill', 'ShowWinner', 'UserEnergyBones', 'UserKennelSpace', 'UserLicence', 'UserRetirementMedal', 'UserBgImage', 'TrainerLog');
+    public $uses = array('GameBreed', 'User', 'Breed', 'DogSkill', 'ShowWinner', 'UserEnergyBones', 'UserKennelSpace', 'UserLicence', 'UserRetirementMedal', 'UserBgImage', 'TrainerLog','Job');
 
     function beforeFilter() {
         parent::beforeFilter();
@@ -32,10 +32,25 @@ class KennelsController extends AppController {
             $this->Session->setFlash(__('Congratulations !! a new game breed has been added to your kennel.'), 'default', array('class' => 'success'));
         }
         $this->Session->delete('purchase');
-        $kennelData = $this->User->findById($this->Auth->user('id'), array('kennel_banner', 'kennel_desc', 'last_activity', 'funds'));
-        		
-		//add 200 game funds on daily login. Check last activity
+        $kennelData = $this->User->findById($this->Auth->user('id'), array('kennel_banner', 'kennel_desc', 'last_activity', 'funds','kennel_spaces'));
 		
+		$user_dogs = $this->GameBreed->find('all', array('conditions' => array(
+											'GameBreed.user_id' => $this->Auth->user('id'),
+											'GameBreed.status' => '1'
+										),
+										'fields' => array(
+											'GameBreed.name', 'GameBreed.gender','GameBreed.age',
+											'GameBreed.is_in_heat','GameBreed.is_up_for_breed',
+											'GameBreed.status','GameBreed.breed_status','GameBreed.id'
+										)));
+		
+		$display_alerts = array();
+		
+		if($kennelData['User']['kennel_spaces'] < count($user_dogs)) {
+			$display_alerts[] = array('msg' => 'Urgent: Number of dogs are more than Kennel Space. Add Kennel Spaces or your extra dogs will be up for adoption or sale soon!', 'color' => 'red');
+		}
+		
+		//add 200 game funds on daily login. Check last activity		
 		$last_activity = $kennelData['User']['last_activity'];
 		
 		if(!empty($last_activity)) {
@@ -61,6 +76,8 @@ class KennelsController extends AppController {
 		}
 		
 		
+		
+		$this->set('display_alerts', $display_alerts);
         $this->set('kennelData', $kennelData);
     }
 
@@ -959,7 +976,7 @@ function pedigree($gbId=null){
         $this->request->data = $rs;
     }
 
-    function training($category, $gameBreedId) {
+    function training($category, $gameBreedId, $applied_job_id = null) {
         // $this->layout = 'user';
         if ($gameBreedId) {
             $this->GameBreed->recursive = '2';
@@ -975,8 +992,11 @@ function pedigree($gbId=null){
             // $dogSkills = $this->DogSkill->findByGameBreedIdAndCategory($gameBreedId, $category);
             // pr($dogSkills);
             // die;
+			if($category == 'conformation')
+				$category = 'confirmation';	
             $this->set('dogSkills', $this->DogSkill->findByGameBreedIdAndCategory($gameBreedId, $category));
-        } else {
+			$this->set('applied_job_id', $applied_job_id);
+		} else {
             $this->Session->setFlash(__('Invalid Page'), 'default', array('class' => 'error'));
         }
     }
@@ -1005,7 +1025,7 @@ function pedigree($gbId=null){
       return false;
     }
 
-    function train_now($dogSkillId, $param, $gameBreedId, $category) {
+    function train_now($dogSkillId, $param, $gameBreedId, $category, $applied_job_id = null) {
         // pr($dogSkillId);pr($param); pr($gameBreedId); pr($category);
         // die;
         if ($dogSkillId && $param) 
@@ -1019,8 +1039,12 @@ function pedigree($gbId=null){
             if($this->isOwner($gameBreedInfo)){
               $isOwner = true;
             }
-            $trainerId = $this->isTrainer($gameBreedInfo);
-            if (!$isOwner && $trainerId){
+            $trainerId = $this->isTrainer($gameBreedInfo);  //giving wrong applied job id
+			
+			$trainerId = $applied_job_id;
+            
+			
+			if (!$isOwner && $trainerId){
               $isTrainer = true;
             }
 
@@ -1074,15 +1098,29 @@ function pedigree($gbId=null){
                             'category' => $category,
                             'training_fields' => json_encode($data),
                             'applied_job_id' => $trainerId,
-                            'created_at' => date('Y-m-d')
+                            'created_at' => date('Y-m-d H:i:s')
                         );
                         
                         $this->TrainerLog->create();
                         $this->TrainerLog->save($trainerLog);
+						
+						$this->AppliedJob->bindModel(array('belongsTo' => array(
+														'Job' => array(
+																	'ClassName' => 'Job',
+																	'foreignKey' => 'job_id'
+																)
+													)));
+						$applied_job = $this->AppliedJob->findById($trainerId);
+						
+						$updated_click = intval($applied_job['Job']['progress']) + 1;
+						
+						
+						$this->Job->id = $applied_job['AppliedJob']['id'];
+						$this->Job->save(array('status' => 2, 'progress' => $updated_click));
                       }
                   }
               } else {
-                  $this->Session->setFlash(__('Energy has been exhosted.Energy will be refreshed at 12:00 AM game time or visit shop to buy enegry bone to refill energy.'), 'default', array('class' => 'error'));
+                  $this->Session->setFlash(__('Energy has been exhosted.Energy will be refreshed at 12:00 AM game time or visit shop to buy energy bone to refill energy.'), 'default', array('class' => 'error'));
               }
             }
         }
