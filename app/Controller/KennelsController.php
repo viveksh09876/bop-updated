@@ -18,7 +18,7 @@ class KennelsController extends AppController {
 
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array('inc_energy_cron', 'increaseAgeCron', 'updateHeatColumnCron','generateRandomStat','update_game_breeds_is_in_heat_status','getDays'));
+        $this->Auth->allow(array('inc_energy_cron', 'increaseAgeCron', 'updateHeatColumnCron','generateRandomStat','update_game_breeds_is_in_heat_status','getDays', 'reset_shots_groomer'));
     }
 
     /**
@@ -717,6 +717,7 @@ class KennelsController extends AppController {
           // echo '<pre>';
           // var_dump($gamebreed);
           // exit;
+		  		  
           $this->set('backgroundImage', $this->getDogBackgroundImage($gamebreed['GameBreed']['name']));
           $this->set('breed', $gamebreed);
 
@@ -1091,6 +1092,40 @@ function pedigree($gbId=null){
                       );
                       //$this->DogSkill->saveField($category,$gameBreedInfo['GameBreed'][$category]+2);
                       $this->GameBreed->save($gmBd, false);
+					  
+					  //update level xp
+					  $gmData = $this->GameBreed->findById($gameBreedId);
+					  if($gmData['GameBreed'][$category] >= 100) {
+						  
+						  $level_xp = $gmData['GameBreed']['level_xp'] + 1000;
+						  $this->GameBreed->id = $gameBreedId;
+						  $this->GameBreed->save(array('level_xp' => $level_xp));	
+						  
+					  }
+					  
+					  //update level if all categories reach 100
+					  if($gmData['GameBreed']['confirmation'] >=100 && 
+							$gmData['GameBreed']['rally'] >=100 && 
+								$gmData['GameBreed']['agility'] >=100 && 
+									$gmData['GameBreed']['obedience'] >=100) {
+										
+						$newLevel = $gmData['GameBreed']['level'] + 1;				
+						$this->GameBreed->id = $gameBreedId;
+						$this->GameBreed->save(array(
+												'confirmation' => 0,
+												'rally' => '0',
+												'agility' => 0,
+												'obedience' => 0,
+												'level' => $newLevel
+									));	
+						
+						
+						$this->Session->setFlash(__('Congratulations! '.$gmData['GameBreed']['name'].' is advanced to next level.' ), 'default', array('class' => 'success'));
+					  
+					  }
+					  
+					  
+					  
                       if($isTrainer){
                         $dogSkill = $this->DogSkill->findById($dogSkillId);
                         $data = $dogSkill['DogSkill'];
@@ -1120,7 +1155,7 @@ function pedigree($gbId=null){
                       }
                   }
               } else {
-                  $this->Session->setFlash(__('Energy has been exhosted.Energy will be refreshed at 12:00 AM game time or visit shop to buy energy bone to refill energy.'), 'default', array('class' => 'error'));
+                  $this->Session->setFlash(__('Energy has been exhausted. Energy will be refreshed at 12:00 AM game time or visit shop to buy energy bone to refill energy.'), 'default', array('class' => 'error'));
               }
             }
         }
@@ -1338,132 +1373,144 @@ function pedigree($gbId=null){
             );
             $bitch = $this->GameBreed->findById($bitch_id);
             // print_r($bitch);die;
+			
             if (!empty($dog_id)) {
 
                 $this->GameBreed->recursive = '2';
                 $this->Breed->bindModel(array('hasMany' => array('BreedImages')));
                 $dog = $this->GameBreed->findById($dog_id);
+				
+				if($bitch['GameBreed']['is_spay_neuter'] == 0 && $bitch['GameBreed']['is_spay_neuter'] == 0){
+					
+					if ($dog['GameBreed']['gender'] != $bitch['GameBreed']['gender'])
+					{
+					  if($dog['GameBreed']['breed_id'] == $bitch['GameBreed']['breed_id']){
+						$this->GameBreed->updateAll(
+							array('breed_status' => 2),
+							array('GameBreed.id' => $bitch['GameBreed']['id'])
+						  );
+						$charge_amount = 0;
 
-                if ($dog['GameBreed']['gender'] != $bitch['GameBreed']['gender'])
-                {
-                  if($dog['GameBreed']['breed_id'] == $bitch['GameBreed']['breed_id']){
-  	                $this->GameBreed->updateAll(
-  		                array('breed_status' => 2),
-  		                array('GameBreed.id' => $bitch['GameBreed']['id'])
-  		              );
-  	                $charge_amount = 0;
+						if ($dog['GameBreed']['user_id'] != $bitch['GameBreed']['user_id']) {
+							$charge_amount = $dog['GameBreed']['breed_price'];
+						}
 
-  	                if ($dog['GameBreed']['user_id'] != $bitch['GameBreed']['user_id']) {
-  	                    $charge_amount = $dog['GameBreed']['breed_price'];
-  	                }
+						$rem_amount = $bitch['User']['funds'] - $charge_amount;
+						if ($rem_amount < 0) {
 
-  	                $rem_amount = $bitch['User']['funds'] - $charge_amount;
-  	                if ($rem_amount < 0) {
+							$this->Session->setFlash(__('Not enough game funds to breed.'), 'default', array('class' => 'error'));
 
-  	                    $this->Session->setFlash(__('Not enough game funds to breed.'), 'default', array('class' => 'error'));
+							$this->redirect($this->referer());
+						}
 
-  	                    $this->redirect($this->referer());
-  	                }
+						$this->User->id = $bitch['User']['id'];
+						$this->User->save(array('funds' => $rem_amount));
 
-  	                $this->User->id = $bitch['User']['id'];
-  	                $this->User->save(array('funds' => $rem_amount));
+						//calculate stats & litter
+						// $max_litter = rand(1, $bitch['Breed']['litter_size']);
+						$max_litter = rand(2, 13);
+						$litter = array();
 
-  	                //calculate stats & litter
-  	                // $max_litter = rand(1, $bitch['Breed']['litter_size']);
-  	                $max_litter = rand(2, 13);
-  	                $litter = array();
+						$gender = array('Bitch', 'Dog');
+						$colors = array($bitch['GameBreed']['color'], $dog['GameBreed']['color']);
 
-  	                $gender = array('Bitch', 'Dog');
-  	                $colors = array($bitch['GameBreed']['color'], $dog['GameBreed']['color']);
+						for ($i = 0; $i < $max_litter; $i++) {
 
-  	                for ($i = 0; $i < $max_litter; $i++) {
+							//stats
+							//$litter[$i]['name'] = $bitch_id;
+							$litter[$i]['user_id'] = $bitch['GameBreed']['user_id'];
+							$litter[$i]['breed_id'] = $dog['GameBreed']['breed_id'];
+							$litter[$i]['breed_image_id'] = $this->getBreedImage($dog['GameBreed']['breed_id'], $colors);
+							$litter[$i]['cost'] = 0;
+							$litter[$i]['gender'] = array_rand($gender);
+							$litter[$i]['age'] = 0;
+							$litter[$i]['is_in_heat'] = 0;
+							
+							
+							$litter[$i]['gen'] = $this->generateRandomStat($bitch['GameBreed']['gen'], $dog['GameBreed']['gen']);
+							$litter[$i]['head'] = $this->generateRandomStat($bitch['GameBreed']['head'], $dog['GameBreed']['head']);
+							$litter[$i]['body'] = $this->generateRandomStat($bitch['GameBreed']['body'], $dog['GameBreed']['body']);
+							$litter[$i]['forequarters'] = $this->generateRandomStat($bitch['GameBreed']['forequarters'], $dog['GameBreed']['forequarters']);
+							$litter[$i]['hindquarters'] = $this->generateRandomStat($bitch['GameBreed']['hindquarters'], $dog['GameBreed']['hindquarters']);
+							$litter[$i]['coat'] = $this->generateRandomStat($bitch['GameBreed']['coat'], $dog['GameBreed']['coat']);
+							$litter[$i]['temperament'] = $this->generateRandomStat($bitch['GameBreed']['temperament'], $dog['GameBreed']['temperament']);
+							$litter[$i]['heart'] = $this->generateRandomStat($bitch['GameBreed']['heart'], $dog['GameBreed']['heart']);
+							$litter[$i]['hip'] = $this->generateRandomStat($bitch['GameBreed']['hip'], $dog['GameBreed']['hip']);
+							$litter[$i]['eyes'] = $this->generateRandomStat($bitch['GameBreed']['eyes'], $dog['GameBreed']['eyes']);
+							$litter[$i]['thyroid'] = $this->generateRandomStat($bitch['GameBreed']['thyroid'], $dog['GameBreed']['thyroid']);
+							
+							
+							/*
+							$litter[$i]['gen'] = rand($bitch['GameBreed']['gen'], $dog['GameBreed']['gen']);
+							$litter[$i]['head'] = rand($bitch['GameBreed']['head'], $dog['GameBreed']['head']);
+							$litter[$i]['body'] = rand($bitch['GameBreed']['body'], $dog['GameBreed']['body']);
+							$litter[$i]['forequarters'] = rand($bitch['GameBreed']['forequarters'], $dog['GameBreed']['forequarters']);
+							$litter[$i]['hindquarters'] = rand($bitch['GameBreed']['hindquarters'], $dog['GameBreed']['hindquarters']);
+							$litter[$i]['coat'] = rand($bitch['GameBreed']['coat'], $dog['GameBreed']['coat']);
+							$litter[$i]['temperament'] = rand($bitch['GameBreed']['temperament'], $dog['GameBreed']['temperament']);
+							$litter[$i]['heart'] = 0;
+							$litter[$i]['hip'] = 0;
+							$litter[$i]['eyes'] = 0;
+							$litter[$i]['thyroid'] = 0;
+							*/
+							
+							
+							$litter[$i]['confirmation'] = 0;
+							$litter[$i]['agility'] = 0;
+							$litter[$i]['obedience'] = 0;
+							$litter[$i]['rally'] = 0;
+							$litter[$i]['energy'] = 100;
+							$litter[$i]['rest'] = 0;
+							$litter[$i]['is_up_for_breed'] = 0;
+							$litter[$i]['breed_price'] = 0;
+							
+							$imgId = $this->getBreedImage($dog['GameBreed']['breed_id'], $colors);
+							$breedImage = $this->BreedImages->find('first', array(
+								'conditions' => array(
+									'BreedImages.id' => $imgId,
+								)
+							));
+							
+							$litter[$i]['b_locus_gene'] = rand(0, $breedImage['BreedImages']['b_locus_gene']);
+							$litter[$i]['d_locus_gene'] = rand(0, $breedImage['BreedImages']['d_locus_gene']);
+							$litter[$i]['e_locus_gene'] = rand(0, $breedImage['BreedImages']['e_locus_gene']);
+							$litter[$i]['s_locus_gene'] = rand(0, $breedImage['BreedImages']['s_locus_gene']);
 
-  	                    //stats
-  	                    //$litter[$i]['name'] = $bitch_id;
-  	                    $litter[$i]['user_id'] = $bitch['GameBreed']['user_id'];
-  	                    $litter[$i]['breed_id'] = $dog['GameBreed']['breed_id'];
-                        $litter[$i]['breed_image_id'] = $this->getBreedImage($dog['GameBreed']['breed_id'], $colors);
-  	                    $litter[$i]['cost'] = 0;
-  	                    $litter[$i]['gender'] = array_rand($gender);
-  	                    $litter[$i]['age'] = 0;
-  	                    $litter[$i]['is_in_heat'] = 0;
-  	                    
+							$date = date('Y-m-d', strtotime('+5 days'));
+
+							$litter[$i]['display_date'] = $date;
+							$litter[$i]['purchase_date'] = $date;
+						}
 						
-						$litter[$i]['gen'] = $this->generateRandomStat($bitch['GameBreed']['gen'], $dog['GameBreed']['gen']);
-  	                    $litter[$i]['head'] = $this->generateRandomStat($bitch['GameBreed']['head'], $dog['GameBreed']['head']);
-  	                    $litter[$i]['body'] = $this->generateRandomStat($bitch['GameBreed']['body'], $dog['GameBreed']['body']);
-  	                    $litter[$i]['forequarters'] = $this->generateRandomStat($bitch['GameBreed']['forequarters'], $dog['GameBreed']['forequarters']);
-  	                    $litter[$i]['hindquarters'] = $this->generateRandomStat($bitch['GameBreed']['hindquarters'], $dog['GameBreed']['hindquarters']);
-  	                    $litter[$i]['coat'] = $this->generateRandomStat($bitch['GameBreed']['coat'], $dog['GameBreed']['coat']);
-  	                    $litter[$i]['temperament'] = $this->generateRandomStat($bitch['GameBreed']['temperament'], $dog['GameBreed']['temperament']);
-  	                    $litter[$i]['heart'] = $this->generateRandomStat($bitch['GameBreed']['heart'], $dog['GameBreed']['heart']);
-  	                    $litter[$i]['hip'] = $this->generateRandomStat($bitch['GameBreed']['hip'], $dog['GameBreed']['hip']);
-  	                    $litter[$i]['eyes'] = $this->generateRandomStat($bitch['GameBreed']['eyes'], $dog['GameBreed']['eyes']);
-  	                    $litter[$i]['thyroid'] = $this->generateRandomStat($bitch['GameBreed']['thyroid'], $dog['GameBreed']['thyroid']);
-						
-						
-						/*
-						$litter[$i]['gen'] = rand($bitch['GameBreed']['gen'], $dog['GameBreed']['gen']);
-  	                    $litter[$i]['head'] = rand($bitch['GameBreed']['head'], $dog['GameBreed']['head']);
-  	                    $litter[$i]['body'] = rand($bitch['GameBreed']['body'], $dog['GameBreed']['body']);
-  	                    $litter[$i]['forequarters'] = rand($bitch['GameBreed']['forequarters'], $dog['GameBreed']['forequarters']);
-  	                    $litter[$i]['hindquarters'] = rand($bitch['GameBreed']['hindquarters'], $dog['GameBreed']['hindquarters']);
-  	                    $litter[$i]['coat'] = rand($bitch['GameBreed']['coat'], $dog['GameBreed']['coat']);
-  	                    $litter[$i]['temperament'] = rand($bitch['GameBreed']['temperament'], $dog['GameBreed']['temperament']);
-  	                    $litter[$i]['heart'] = 0;
-  	                    $litter[$i]['hip'] = 0;
-  	                    $litter[$i]['eyes'] = 0;
-  	                    $litter[$i]['thyroid'] = 0;
-  	                    */
-						
-						
-						$litter[$i]['confirmation'] = 0;
-  	                    $litter[$i]['agility'] = 0;
-  	                    $litter[$i]['obedience'] = 0;
-  	                    $litter[$i]['rally'] = 0;
-  	                    $litter[$i]['energy'] = 100;
-  	                    $litter[$i]['rest'] = 0;
-  	                    $litter[$i]['is_up_for_breed'] = 0;
-  	                    $litter[$i]['breed_price'] = 0;
-						
-						$imgId = $this->getBreedImage($dog['GameBreed']['breed_id'], $colors);
-						$breedImage = $this->BreedImages->find('first', array(
-							'conditions' => array(
-								'BreedImages.id' => $imgId,
-							)
-						));
-						
-						$litter[$i]['b_locus_gene'] = rand(0, $breedImage['BreedImages']['b_locus_gene']);
-						$litter[$i]['d_locus_gene'] = rand(0, $breedImage['BreedImages']['d_locus_gene']);
-						$litter[$i]['e_locus_gene'] = rand(0, $breedImage['BreedImages']['e_locus_gene']);
-						$litter[$i]['s_locus_gene'] = rand(0, $breedImage['BreedImages']['s_locus_gene']);
+						$this->GameBreed->create();
+						$this->GameBreed->saveAll($litter);
 
-  	                    $date = date('Y-m-d', strtotime('+5 days'));
-
-  	                    $litter[$i]['display_date'] = $date;
-  	                    $litter[$i]['purchase_date'] = $date;
-  	                }
-  	                
-  	                $this->GameBreed->create();
-  	                $this->GameBreed->saveAll($litter);
-
-  	                $this->GameBreed->id = $bitch['GameBreed']['id'];
-  	                $this->GameBreed->save(array('is_in_heat' => 1));
+						$this->GameBreed->id = $bitch['GameBreed']['id'];
+						$this->GameBreed->save(array('is_in_heat' => 1));
 
 
-  	                $this->Session->setFlash(__('Breeding done successfully.'), 'default', array('class' => 'success'));
+						$this->Session->setFlash(__('Breeding done successfully.'), 'default', array('class' => 'success'));
 
-  	                $this->redirect(array('controller' => 'kennels', 'action' => 'index'));
-                  }
-                  else{
-                    $this->Session->setFlash(__('Can Not Breed of Different Breed Types.'), 'default', array('class' => 'error'));
-                    $this->redirect($this->referer());
-                  }
-	            }
-	            else{
-	            	$this->Session->setFlash(__('Can Not Breed.'), 'default', array('class' => 'error'));
-	            	$this->redirect($this->referer());
-	            }
+						$this->redirect(array('controller' => 'kennels', 'action' => 'index'));
+					  }
+					  else{
+						$this->Session->setFlash(__('Can Not Breed of Different Breed Types.'), 'default', array('class' => 'error'));
+						$this->redirect($this->referer());
+					  }
+					}
+					else{
+						$this->Session->setFlash(__('Can Not Breed.'), 'default', array('class' => 'error'));
+						$this->redirect($this->referer());
+					}
+				}else{
+					
+					$this->Session->setFlash(__('Can Not Breed because '.$dog['GameBreed']['gender'].' is spay/neutered.'), 'default', array('class' => 'error'));
+					$this->redirect($this->referer());
+					
+				}
+				
+				
+                
             } else {
                 $this->redirect($this->referer());
             }
@@ -1566,7 +1613,7 @@ function pedigree($gbId=null){
                     }
                 } else {
 
-                    if (!empty($bitch['GameBreed']['heat_date'])) {
+                    if (!empty($bitch['GameBreed']['heat_date']) && $bitch['GameBreed']['is_spay_neuter'] == 0) {
                         $cur_date = date_create(date('Y-m-d'));
                         $last_heat_date = date_create($bitch['GameBreed']['heat_date']);
                         $diff = date_diff($last_heat_date, $cur_date);
@@ -1664,6 +1711,14 @@ function pedigree($gbId=null){
    		}
         echo 'Is In Heat Status Updated'; die;
     }
+	
+	
+	public function reset_shots_groomer() {
+		
+		$this->GameBreed->updateAll(array('GameBreed.shots' => 0, 'GameBreed.groomer' => 0));
+		echo 'Reset Done'; die;
+		
+	}
   
   
 }

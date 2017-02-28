@@ -92,6 +92,9 @@
                             margin: 10px 0;
                             padding: 2px 40px;
                         }
+						
+						
+
                     </style>
                     <div class="dog-left">
                         <h4 class="text-center" style="margin:0px; padding-bottom: 10px;padding-top: 10px; background-color: #B378D3; color:#fff;"> GENETIC TRAITS</h4>
@@ -104,6 +107,9 @@
                             <li><label>COAT (<?php echo $breed['GameBreed']['coat'] . '/100'; ?>)</label><div class="val_div_box" style="width: <?php echo $breed['GameBreed']['gen'] . 'px'; ?>"><div class="val_div" style="width: <?php echo $breed['GameBreed']['coat'] . 'px'; ?>;background: rgba(0, 0, 0, 0) -moz-linear-gradient(left center , #00ff00, #330099) repeat scroll 0 0"></div></div></li>
                             <li><label>TEMPERMENT (<?php echo $breed['GameBreed']['temperament'] . '/100'; ?>)</label><div class="val_div_box" style="width: <?php echo $breed['GameBreed']['gen'] . 'px'; ?>"><div class="val_div" style="width: <?php echo $breed['GameBreed']['temperament'] . 'px'; ?>;background: rgba(0, 0, 0, 0) -moz-linear-gradient(left center , #00ff00, #330099) repeat scroll 0 0"></div></div></li>
                             </ul>
+							
+							<?php if($breed['GameBreed']['age'] > 21){ ?>
+							
 							<h4 style="margin:0px; padding-bottom: 10px;padding-top: 10px; background-color: #B378D3; color:#fff; text-align: center; ">HEALTH STATS</h4>
 							<ul>
                             <li><label>HEART (<?php echo $breed['GameBreed']['heart'] . '/100'; ?>)</label><div class="val_div_box" style="width: <?php echo $breed['GameBreed']['gen'] . 'px'; ?>"><div class="val_div" style="width: <?php echo $breed['GameBreed']['heart'] . 'px'; ?>;background: rgba(0, 0, 0, 0) -moz-linear-gradient(left center , #00ff00, #330099) repeat scroll 0 0"></div></div></li>
@@ -111,7 +117,8 @@
                             <li><label>EYE (<?php echo $breed['GameBreed']['eyes'] . '/100'; ?>)</label><div class="val_div_box" style="width: <?php echo $breed['GameBreed']['gen'] . 'px'; ?>"><div class="val_div" style="width: <?php echo $breed['GameBreed']['eyes'] . 'px'; ?>;background: rgba(0, 0, 0, 0) -moz-linear-gradient(left center , #00ff00, #330099) repeat scroll 0 0"></div></div></li>
                             <li><label>THYROID (<?php echo $breed['GameBreed']['thyroid'] . '/100'; ?>)</label><div class="val_div_box" style="width: <?php echo $breed['GameBreed']['gen'] . 'px'; ?>"><div class="val_div" style="width: <?php echo $breed['GameBreed']['thyroid'] . 'px'; ?>;background: rgba(0, 0, 0, 0) -moz-linear-gradient(left center , #00ff00, #330099) repeat scroll 0 0"></div></div></li>
                         </ul>
-
+							
+							<?php } ?>
                     </div>
                     <div class="dog-main">
                         <div class="picpace-holder"> <img style="max-height: 400px;" src="<?php echo SITE_URL; ?>timthumb.php?src=files/breeds/<?php
@@ -172,7 +179,12 @@
                             <div class="maintabs">
                             <?php echo $this->Session->flash(); ?>
                             <div id="tab-1" class="tab-content current">
-
+								
+								<div style="text-align: center; ">
+									
+									<p  style="display: inline-block; width: 500px;"><strong style="display: inline; font-size: 16px; font-weight: bold; ">Level <?php echo $breed['GameBreed']['level']; ?></strong><strong class="voilet val_div" style="width:<?php echo ($breed['GameBreed']['level_xp']/100) - 5; ?>%;display: inline-block;height: 18px; margin-left: 10px; margin-top: 3px; margin-right: 10px;"></strong><span style="font-weight: bold;">(<?php echo $breed['GameBreed']['level_xp']; ?> xp)</span></p>
+								</div>
+								
                                 <ul style="border-top: none;width:40%;">
                                     <li><small><a href="<?php echo $this->webroot; ?>kennels/training/confirmation/<?php echo $breed['GameBreed']['id']; ?>"  class="btn btn-primary">CONFORMATION</a></small>
 

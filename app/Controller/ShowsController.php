@@ -204,27 +204,44 @@ class ShowsController extends AppController {
                     $status = true;
                 }
                 if($status){
-                    $breedAge = $gameBreedArr['GameBreed']['age'];
-                    $this->request->data['ShowEntry']['age'] = $breedAge;
-                    $today = date('Y-m-d H:i:s');
-                    if (strtotime($today) < strtotime($showArr['Show']['start_date'])) {
-                        if ($credits >= $showArr['Show']['entry_fees']) {
-                            $credits = $credits - $showArr['Show']['entry_fees'];
-                            $this->User->id = $userId;
-                            $this->User->saveField('credits', $credits);
-                            $this->Session->write('Auth.User.credits', $credits);
-                            if ($this->ShowEntry->save($this->request->data)) {
-                                $msg = 'Dog has entered in the show, Thank you';
-                                $st = '1';
-                            }
-                        } else {
-                            $msg = 'Sorry credit is not sufficient to enter into this show.';
-                            $st = '0';
-                        }
-                    } else {
-                        $msg = 'Sorry show entries are closed now.';
-                        $st = '0';
-                    }
+					
+					if($gameBreedArr['GameBreed']['shots'] > 0) {
+							
+						if($gameBreedArr['GameBreed']['groomer'] > 0) {
+						
+							$breedAge = $gameBreedArr['GameBreed']['age'];
+							$this->request->data['ShowEntry']['age'] = $breedAge;
+							$today = date('Y-m-d H:i:s');
+							if (strtotime($today) < strtotime($showArr['Show']['start_date'])) {
+								if ($credits >= $showArr['Show']['entry_fees']) {
+									$credits = $credits - $showArr['Show']['entry_fees'];
+									$this->User->id = $userId;
+									$this->User->saveField('credits', $credits);
+									$this->Session->write('Auth.User.credits', $credits);
+									if ($this->ShowEntry->save($this->request->data)) {
+										$msg = 'Dog has entered in the show, Thank you';
+										$st = '1';
+									}
+								} else {
+									$msg = 'Sorry credit is not sufficient to enter into this show.';
+									$st = '0';
+								}
+							} else {
+								$msg = 'Sorry show entries are closed now.';
+								$st = '0';
+							}
+						
+						}else{						
+							$msg = 'Groomer required to enter in shows';
+							$st = '0';
+						}
+						
+					}else{						
+						$msg = 'Shots required to enter in shows';
+						$st = '0';
+					}
+					
+                    
                 }else{
                     $msg = 'Must Meet Requirements.';
                     $st = '0';    

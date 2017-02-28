@@ -79,6 +79,15 @@ class VetController extends AppController {
         $this->loadModel('Veterinarian');
        
         if ($this->Veterinarian->save($veterinarian)) {
+			
+			$this->loadModel('GameBreed');
+			
+			$gamebreed = $this->GameBreed->findById($breed_data['breed']);			
+			$shotsVal = intval($gamebreed['GameBreed']['shots']) + 1;
+			
+			$this->GameBreed->id = $breed_data['breed'];
+			$this->GameBreed->save(array('shots' => $shotsVal));
+						
             return $this->redirect('/vet');
         }
     }
@@ -238,7 +247,7 @@ class VetController extends AppController {
     if ($this->request->is('post')) {
         // If the form data can be validated and saved...
         $breed_data = $this->request->data;
-
+		
         $this->loadModel('User');
         // Load current logged in user and debit amount from credit or fund
          $user = $this->User->find('first', array('conditions' => array('User.id' => $this->Auth->user('id'))));
@@ -263,6 +272,11 @@ class VetController extends AppController {
         $this->loadModel('Veterinarian');
        
         if ($this->Veterinarian->save($veterinarian)) {
+			
+			$this->loadModel('GameBreed');
+			$this->GameBreed->id = $breed_data['breed'];
+			$this->GameBreed->save(array('is_spay_neuter' => 1));
+			
             return $this->redirect('/vet');
         }
     }
@@ -306,6 +320,15 @@ class VetController extends AppController {
         $this->loadModel('Veterinarian');
        
         if ($this->Veterinarian->save($veterinarian)) {
+			
+			$this->loadModel('GameBreed');
+			
+			$gamebreed = $this->GameBreed->findById($breed_data['breed']);			
+			$groomerVal = intval($gamebreed['GameBreed']['groomer']) + 1;
+			
+			$this->GameBreed->id = $breed_data['breed'];
+			$this->GameBreed->save(array('groomer' => $groomerVal));
+			
             return $this->redirect('/vet');
         }
     }
