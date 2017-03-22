@@ -1,5 +1,9 @@
 <script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+
+<?php echo $this->Html->css(array('jquery.fancybox')); 
+	echo $this->Html->script(array('jquery.fancybox'));
+?>
 <!------------------------------------->
 <!--sidebar start-->
 <style>
@@ -92,7 +96,12 @@
                   <th>Total TRAINING AMOUNT (Clicks)</th>
 				  <th>Pending TRAINING AMOUNT (Clicks)</th>
                   <th>TRAINING CATEGORY</th>
-                  <th>AMOUNT</th>
+                  <th>POSTED DATE</th>
+				  <th>TOTAL TIME (in hrs)</th>
+				  <th>JOB START DATE/TIME</th>
+				  <th>AMOUNT</th>
+				  <th>AMOUNT TRANSFERRED</th>
+				  <th>STATUS</th>
                   <th>Action</th>
                </tr>
             </thead>
@@ -104,12 +113,32 @@
                   <td style="text-align:center;"><?php echo $aj['Job']['training_clicks']; ?></td>
 				  <td style="text-align:center;"><?php echo $aj['Job']['training_clicks'] - $aj['Job']['progress']; ?></td>
                   <td><?php echo $aj['Job']['categories']; ?></td>
+				  <td><?php echo $aj['Job']['posted_date']; ?></td>
+				  <td><?php echo $aj['Job']['time_complete']; ?></td>
+				  <td><?php echo $aj['Job']['job_start_time']; ?></td>
                   <td>$<?php echo $aj['Job']['salary']; ?></td>
+				  <td>$<?php echo $aj['Job']['amount_released']; ?></td>
+				  <td><?php
+					
+					if($aj['Job']['status'] == 0){ echo 'Posted'; }elseif ($aj['Job']['status'] == 1){ echo 'Accepted';	}elseif ($aj['Job']['status'] == 2){ echo 'In Progress';	}elseif ($aj['Job']['status'] == 3){ echo 'Completed'; }	?></td>
                   <td>
-					<?php if($aj['Job']['status'] == 0){ ?>
+					<?php if($aj['Job']['status'] == 2 || $aj['Job']['status'] == 3){ ?>
+						
+						<?php if($aj['Job']['amount_released'] < $aj['Job']['salary']){ ?>
+						<a class="btn btn-primary" href="javascript:void(0)" onclick="release_amount(<?php echo $aj['Job']['id']; ?>);">
+                        Release Amount</a>
+						<?php } ?>
+						<?php if($aj['Job']['status'] == 2){ ?>
+						<a class="btn btn-primary" href="javascript:void(0)" onclick="mark_complete(<?php echo $aj['Job']['id']; ?>);">
+                        Mark Complete</a>
+						<?php } ?>
+						
+					<?php
+					}else{
+					if($aj['Job']['status'] == 0){ ?>
                      <a class="btn btn-primary" href="javascript:void(0)" onclick="show_responses(this);">
                         View Responses</a>
-					<?php }elseif ($aj['Job']['status'] == 1){ echo 'Accepted';	}elseif ($aj['Job']['status'] == 2){ echo 'In Progress';	}elseif ($aj['Job']['status'] == 3){ echo 'Completed'; }	?>
+					<?php }elseif ($aj['Job']['status'] == 1){ echo 'Accepted';	}elseif ($aj['Job']['status'] == 2){ echo 'In Progress';	}elseif ($aj['Job']['status'] == 3){ echo 'Completed'; }	}?>
                   </td>
                </tr>
                <tr class="responses" style="display:none">
@@ -171,5 +200,28 @@
 <script>
    function show_responses(obj){
       $(obj).parent().parent().next().slideToggle();
+   }
+   
+   function release_amount(job_id) {
+		
+		$.fancybox.open({
+			type: 'ajax',
+			href: '<?php echo $this->webroot. 'jobs/get_release_amount/'; ?>' + job_id
+		});
+   
+   }
+   
+   function mark_complete(job_id) {
+	   
+	   var y = confirm('Are you sure you want to mark this job complete?');
+	   if(y) {
+		   $.post('<?php echo $this->webroot.'/jobs/mark_complete'?>',{jobid: job_id}, function(resp){
+			   if(resp == 'success') {
+				   alert('Job marked completed!');
+				   window.location.reload();
+			   }
+		   });
+	   }
+	   
    }
 </script>

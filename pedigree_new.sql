@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.0.10.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 28, 2017 at 07:23 PM
--- Server version: 5.6.24
--- PHP Version: 5.5.24
+-- Host: localhost:3306
+-- Generation Time: Mar 22, 2017 at 11:51 AM
+-- Server version: 5.6.33-cll-lve
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,15 +27,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `aboutuses` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `desc` text,
   `url` varchar(255) DEFAULT NULL,
   `filename` varchar(255) DEFAULT NULL,
   `type` varchar(30) NOT NULL,
   `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `aboutuses`
@@ -58,14 +59,15 @@ INSERT INTO `aboutuses` (`id`, `title`, `desc`, `url`, `filename`, `type`, `crea
 --
 
 CREATE TABLE IF NOT EXISTS `achievements` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `award_type` varchar(255) NOT NULL,
   `condition` varchar(255) NOT NULL,
   `reward` int(11) NOT NULL,
   `description` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=63 ;
 
 --
 -- Dumping data for table `achievements`
@@ -142,11 +144,12 @@ INSERT INTO `achievements` (`id`, `award_type`, `condition`, `reward`, `descript
 --
 
 CREATE TABLE IF NOT EXISTS `admin_messages` (
-  `id_msg` int(11) NOT NULL,
+  `id_msg` int(11) NOT NULL AUTO_INCREMENT,
   `email_msg` text NOT NULL,
   `message_msg` text NOT NULL,
-  `date_msg` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `date_msg` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_msg`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -155,12 +158,13 @@ CREATE TABLE IF NOT EXISTS `admin_messages` (
 --
 
 CREATE TABLE IF NOT EXISTS `applied_jobs` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `job_id` bigint(20) DEFAULT NULL,
   `applied_by` bigint(20) DEFAULT NULL,
   `status` enum('Accepted','Rejected','Pending') DEFAULT 'Pending',
-  `applied_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `applied_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `applied_jobs`
@@ -168,7 +172,8 @@ CREATE TABLE IF NOT EXISTS `applied_jobs` (
 
 INSERT INTO `applied_jobs` (`id`, `job_id`, `applied_by`, `status`, `applied_date`) VALUES
 (1, 1, 109, 'Accepted', '2016-12-27 17:57:22'),
-(2, 2, 109, 'Accepted', '2017-01-14 06:59:56');
+(2, 2, 109, 'Accepted', '2017-01-14 06:59:56'),
+(3, 3, 109, 'Accepted', '2017-03-13 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -177,13 +182,14 @@ INSERT INTO `applied_jobs` (`id`, `job_id`, `applied_by`, `status`, `applied_dat
 --
 
 CREATE TABLE IF NOT EXISTS `awards` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `short_name` varchar(100) NOT NULL,
   `description` text,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `awards`
@@ -217,7 +223,7 @@ INSERT INTO `awards` (`id`, `name`, `short_name`, `description`, `created_at`, `
 --
 
 CREATE TABLE IF NOT EXISTS `breeds` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `litter_size` smallint(6) NOT NULL,
   `description` text,
@@ -227,8 +233,9 @@ CREATE TABLE IF NOT EXISTS `breeds` (
   `s_locus_gene` tinyint(4) NOT NULL DEFAULT '0',
   `status` tinyint(2) DEFAULT '1',
   `created` datetime NOT NULL,
-  `modified` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=87 ;
 
 --
 -- Dumping data for table `breeds`
@@ -264,7 +271,7 @@ INSERT INTO `breeds` (`id`, `name`, `litter_size`, `description`, `b_locus_gene`
 --
 
 CREATE TABLE IF NOT EXISTS `breed_images` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `breed_id` int(11) NOT NULL,
   `color` varchar(255) NOT NULL,
   `marking` varchar(255) NOT NULL,
@@ -274,8 +281,9 @@ CREATE TABLE IF NOT EXISTS `breed_images` (
   `d_locus_gene` tinyint(4) NOT NULL DEFAULT '0',
   `e_locus_gene` tinyint(4) NOT NULL DEFAULT '0',
   `s_locus_gene` tinyint(4) NOT NULL DEFAULT '0',
-  `created` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=382 DEFAULT CHARSET=latin1;
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=382 ;
 
 --
 -- Dumping data for table `breed_images`
@@ -672,12 +680,13 @@ INSERT INTO `breed_images` (`id`, `breed_id`, `color`, `marking`, `filename`, `f
 --
 
 CREATE TABLE IF NOT EXISTS `discussions` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) NOT NULL,
   `message` longtext NOT NULL,
   `created` datetime NOT NULL,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `discussions`
@@ -699,7 +708,7 @@ INSERT INTO `discussions` (`id`, `subject`, `message`, `created`, `modified`) VA
 --
 
 CREATE TABLE IF NOT EXISTS `dog_skills` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `trainer_id` bigint(20) DEFAULT NULL,
   `game_breed_id` bigint(20) NOT NULL,
   `category` enum('confirmation','agility','obedience','rally') NOT NULL,
@@ -769,8 +778,9 @@ CREATE TABLE IF NOT EXISTS `dog_skills` (
   `stand_sit` int(11) NOT NULL,
   `stand_down` int(11) NOT NULL,
   `call_rally` int(11) NOT NULL,
-  `jump` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=485 DEFAULT CHARSET=latin1;
+  `jump` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=485 ;
 
 --
 -- Dumping data for table `dog_skills`
@@ -1271,7 +1281,7 @@ INSERT INTO `dog_skills` (`id`, `trainer_id`, `game_breed_id`, `category`, `stac
 --
 
 CREATE TABLE IF NOT EXISTS `emailtemplates` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email_for` varchar(100) NOT NULL,
   `from_name` varchar(100) NOT NULL,
   `from_email` varchar(100) NOT NULL,
@@ -1279,8 +1289,9 @@ CREATE TABLE IF NOT EXISTS `emailtemplates` (
   `subject` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `emailtemplates`
@@ -1314,12 +1325,13 @@ INSERT INTO `emailtemplates` (`id`, `email_for`, `from_name`, `from_email`, `rep
 --
 
 CREATE TABLE IF NOT EXISTS `faqs` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `question` varchar(512) NOT NULL,
   `answer` mediumtext NOT NULL,
   `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `faqs`
@@ -1339,7 +1351,7 @@ INSERT INTO `faqs` (`id`, `question`, `answer`, `created`, `modified`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `forums` (
-  `forum_id` int(11) NOT NULL,
+  `forum_id` int(11) NOT NULL AUTO_INCREMENT,
   `post_title` varchar(255) DEFAULT NULL,
   `post_slug` varchar(255) DEFAULT NULL,
   `total_comments` int(11) NOT NULL DEFAULT '0',
@@ -1353,8 +1365,9 @@ CREATE TABLE IF NOT EXISTS `forums` (
   `post_added_date` datetime DEFAULT NULL,
   `post_updated_date` datetime DEFAULT NULL,
   `status` enum('Active','Inactive') NOT NULL DEFAULT 'Inactive',
-  `comment_status` enum('Enable','Close') NOT NULL DEFAULT 'Enable'
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `comment_status` enum('Enable','Close') NOT NULL DEFAULT 'Enable',
+  PRIMARY KEY (`forum_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `forums`
@@ -1372,7 +1385,7 @@ INSERT INTO `forums` (`forum_id`, `post_title`, `post_slug`, `total_comments`, `
 --
 
 CREATE TABLE IF NOT EXISTS `forum_comments` (
-  `forum_comment_id` int(11) NOT NULL,
+  `forum_comment_id` int(11) NOT NULL AUTO_INCREMENT,
   `forum_id` int(11) DEFAULT NULL,
   `comments` text,
   `user_id` int(11) DEFAULT NULL,
@@ -1380,8 +1393,9 @@ CREATE TABLE IF NOT EXISTS `forum_comments` (
   `dislikes` bigint(20) NOT NULL,
   `post_sent_date` datetime DEFAULT NULL,
   `parent_id` int(11) NOT NULL DEFAULT '0',
-  `status` enum('Approved','Disapproved') NOT NULL DEFAULT 'Approved'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `status` enum('Approved','Disapproved') NOT NULL DEFAULT 'Approved',
+  PRIMARY KEY (`forum_comment_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `forum_comments`
@@ -1404,12 +1418,13 @@ INSERT INTO `forum_comments` (`forum_comment_id`, `forum_id`, `comments`, `user_
 --
 
 CREATE TABLE IF NOT EXISTS `forum_votes` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `forum_id` bigint(20) DEFAULT NULL,
   `forum_comment_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
-  `vote` enum('like','dislike') NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `vote` enum('like','dislike') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `forum_votes`
@@ -1434,7 +1449,7 @@ INSERT INTO `forum_votes` (`id`, `forum_id`, `forum_comment_id`, `user_id`, `vot
 --
 
 CREATE TABLE IF NOT EXISTS `game_breeds` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `breed_id` int(11) DEFAULT NULL,
@@ -1476,16 +1491,25 @@ CREATE TABLE IF NOT EXISTS `game_breeds` (
   `status` tinyint(4) NOT NULL DEFAULT '1',
   `purchase_date` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
-  `breed_status` int(11) DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `breed_status` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `game_breeds`
 --
 
 INSERT INTO `game_breeds` (`id`, `user_id`, `name`, `breed_id`, `breed_image_id`, `color`, `cost`, `gender`, `age`, `is_in_heat`, `heat_days_left`, `heat_date`, `gen`, `head`, `body`, `forequarters`, `coat`, `hindquarters`, `temperament`, `heart`, `hip`, `eyes`, `thyroid`, `confirmation`, `agility`, `obedience`, `rally`, `energy`, `rest`, `is_up_for_breed`, `breed_price`, `for_adoption`, `adoption_price`, `display_date`, `is_spay_neuter`, `shots`, `groomer`, `level`, `level_xp`, `status`, `purchase_date`, `modified`, `breed_status`) VALUES
-(1, 107, 'Wicked', 64, 214, 'Black and Rust', '1200', 'Dog', 29, 0, 0, NULL, 29, 44, 56, 13, 96, 12, 19, 88, 65, 11, 8, 100, 0, 0, 0, 7727, 0, 0, NULL, 0, NULL, NULL, 1, 0, 0, 1, 1000, 1, '2016-09-20 02:22:10', '2017-02-04 15:39:54', 0),
-(2, 107, 'Order', 64, 214, 'Black and Rust', '1200', 'Bitch', 29, 1, 4, '2016-09-20', 51, 18, 22, 15, 33, 59, 19, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, NULL, 1, NULL, NULL, 0, 0, 0, 1, 0, 1, '2016-09-20 02:23:00', '2016-09-27 07:00:03', 2);
+(1, 107, 'Wicked', 64, 214, 'Black and Rust', '1200', 'Dog', 29, 0, 0, NULL, 29, 44, 56, 13, 96, 12, 19, 88, 65, 11, 8, 100, 0, 0, 0, 7727, 0, 0, NULL, 0, NULL, NULL, 1, 1, 1, 1, 1000, 1, '2016-09-20 02:22:10', '2017-03-22 17:00:02', 0),
+(2, 107, 'Order', 64, 214, 'Black and Rust', '1200', 'Bitch', 29, 1, 4, '2016-09-20', 51, 18, 22, 15, 33, 59, 19, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, NULL, 1, NULL, NULL, 0, 0, 0, 1, 0, 1, '2016-09-20 02:23:00', '2017-03-15 17:01:52', 2),
+(3, 107, NULL, 64, 214, NULL, '0', 'Dog', 15, 0, 0, NULL, 29, 44, 56, 17, 101, 12, 19, 88, 0, 11, 18, 0, 0, 0, 0, 100, 0, 0, '0.00', 0, NULL, '2017-03-20', 0, 0, 0, 1, 0, 1, '2017-03-20 00:00:00', '2017-03-20 07:00:01', 0),
+(4, 107, NULL, 64, 214, NULL, '0', 'Dog', 15, 0, 0, NULL, 54, 47, 66, 19, 101, 59, 20, 88, 68, 14, 18, 0, 0, 0, 0, 100, 0, 0, '0.00', 0, NULL, '2017-03-20', 0, 0, 0, 1, 0, 1, '2017-03-20 00:00:00', '2017-03-20 07:00:01', 0),
+(5, 107, NULL, 64, 214, NULL, '0', 'Dog', 15, 0, 0, NULL, 51, 18, 60, 13, 96, 12, 19, 91, 65, 13, 8, 0, 0, 0, 0, 100, 0, 0, '0.00', 0, NULL, '2017-03-20', 0, 0, 0, 1, 0, 1, '2017-03-20 00:00:00', '2017-03-20 07:00:01', 0),
+(6, 107, NULL, 64, 214, NULL, '0', 'Dog', 15, 0, 0, NULL, 56, 44, 56, 13, 96, 12, 19, 93, 72, 11, 11, 0, 0, 0, 0, 100, 0, 0, '0.00', 0, NULL, '2017-03-20', 0, 0, 0, 1, 0, 1, '2017-03-20 00:00:00', '2017-03-20 07:00:01', 0),
+(7, 107, NULL, 64, 214, NULL, '0', 'Dog', 15, 0, 0, NULL, 58, 44, 22, 13, 97, 60, 19, 98, 72, 13, 16, 0, 0, 0, 0, 100, 0, 0, '0.00', 0, NULL, '2017-03-20', 0, 0, 0, 1, 0, 1, '2017-03-20 00:00:00', '2017-03-20 07:00:01', 0),
+(8, 107, NULL, 64, 214, NULL, '0', 'Dog', 15, 0, 0, NULL, 60, 44, 57, 15, 96, 12, 19, 88, 65, 11, 11, 0, 0, 0, 0, 100, 0, 0, '0.00', 0, NULL, '2017-03-20', 0, 0, 0, 1, 0, 1, '2017-03-20 00:00:00', '2017-03-20 07:00:01', 0),
+(9, 107, NULL, 64, 214, NULL, '0', 'Dog', 15, 0, 0, NULL, 29, 51, 58, 23, 33, 12, 19, 88, 73, 0, 18, 0, 0, 0, 0, 100, 0, 0, '0.00', 0, NULL, '2017-03-20', 0, 0, 0, 1, 0, 1, '2017-03-20 00:00:00', '2017-03-20 07:00:01', 0),
+(10, 107, NULL, 64, 214, NULL, '0', 'Dog', 15, 0, 0, NULL, 51, 44, 63, 15, 96, 61, 19, 88, 0, 18, 8, 0, 0, 0, 0, 100, 0, 0, '0.00', 0, NULL, '2017-03-20', 0, 0, 0, 1, 0, 1, '2017-03-20 00:00:00', '2017-03-20 07:00:01', 0);
 
 -- --------------------------------------------------------
 
@@ -1494,7 +1518,7 @@ INSERT INTO `game_breeds` (`id`, `user_id`, `name`, `breed_id`, `breed_image_id`
 --
 
 CREATE TABLE IF NOT EXISTS `game_breeds-bk` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `breed_id` int(11) DEFAULT NULL,
@@ -1502,8 +1526,9 @@ CREATE TABLE IF NOT EXISTS `game_breeds-bk` (
   `gender` enum('Dog','Bitch') DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `is_in_heat` tinyint(4) NOT NULL DEFAULT '0',
-  `purchase_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  `purchase_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `game_breeds-bk`
@@ -1534,12 +1559,13 @@ INSERT INTO `game_breeds-bk` (`id`, `user_id`, `name`, `breed_id`, `cost`, `gend
 --
 
 CREATE TABLE IF NOT EXISTS `game_funds` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
   `game_funds` varchar(50) DEFAULT NULL,
   `credits_to_buy` bigint(20) DEFAULT NULL,
-  `added_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `added_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `game_funds`
@@ -1558,25 +1584,32 @@ INSERT INTO `game_funds` (`id`, `product_id`, `game_funds`, `credits_to_buy`, `a
 --
 
 CREATE TABLE IF NOT EXISTS `jobs` (
-  `id` bigint(11) NOT NULL,
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL,
   `game_breed_id` bigint(20) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `categories` varchar(255) DEFAULT NULL,
   `training_clicks` smallint(6) NOT NULL DEFAULT '1',
   `salary` bigint(20) DEFAULT NULL,
+  `time_complete` tinyint(4) NOT NULL,
   `progress` smallint(6) NOT NULL DEFAULT '0' COMMENT 'total clicks done so far',
+  `accepted_date` datetime DEFAULT NULL,
+  `job_start_time` datetime DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=new 1=accepted 2=in progress 3=completed',
-  `posted_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `amount_released` int(11) NOT NULL DEFAULT '0',
+  `posted_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `user_id`, `game_breed_id`, `title`, `categories`, `training_clicks`, `salary`, `progress`, `status`, `posted_date`) VALUES
-(1, 107, 1, 'conformation training', 'confirmation', 1, 10, 2, 2, '2016-12-27 17:52:15'),
-(2, 107, 1, 'Job number 1', 'conformation', 10, 12, 17, 2, '2017-01-14 06:52:31');
+INSERT INTO `jobs` (`id`, `user_id`, `game_breed_id`, `title`, `categories`, `training_clicks`, `salary`, `time_complete`, `progress`, `accepted_date`, `job_start_time`, `status`, `amount_released`, `posted_date`) VALUES
+(1, 107, 1, 'conformation training', 'confirmation', 1, 10, 0, 2, NULL, NULL, 3, 0, '2016-12-27 17:52:15'),
+(2, 107, 1, 'Job number 1', 'conformation', 10, 12, 0, 17, NULL, NULL, 2, 0, '2017-01-14 06:52:31'),
+(3, 107, 1, 'new job', 'conformation', 10, 10, 3, 1, '2017-03-01 12:25:45', '2017-03-01 12:39:11', 2, 1, '2017-03-01 12:17:28'),
+(4, 107, 1, 'test', 'conformation', 25, 200, 2, 0, NULL, NULL, 0, 0, '2017-03-15 17:24:33');
 
 -- --------------------------------------------------------
 
@@ -1585,14 +1618,15 @@ INSERT INTO `jobs` (`id`, `user_id`, `game_breed_id`, `title`, `categories`, `tr
 --
 
 CREATE TABLE IF NOT EXISTS `manage_banners` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `vet_banner` varchar(250) NOT NULL,
   `shop_banner` varchar(250) NOT NULL,
   `adoption_banner` varchar(250) NOT NULL,
   `job_banner` varchar(250) NOT NULL,
   `show_banner` varchar(250) NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `manage_banners`
@@ -1608,18 +1642,21 @@ INSERT INTO `manage_banners` (`id`, `vet_banner`, `shop_banner`, `adoption_banne
 --
 
 CREATE TABLE IF NOT EXISTS `messages` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` longtext NOT NULL,
   `created` datetime NOT NULL,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `messages`
 --
 
 INSERT INTO `messages` (`id`, `content`, `created`, `modified`) VALUES
-(22, 'Welcome to Best of Pedigree!', '2016-09-23 22:49:41', '2016-09-24 05:49:41');
+(22, 'Welcome to Best of Pedigree!', '2016-09-23 22:49:41', '2016-09-24 05:49:41'),
+(23, 'hi\n', '2017-03-15 17:10:37', '2017-03-16 00:10:37'),
+(24, 'testing..', '2017-03-15 17:10:47', '2017-03-16 00:10:47');
 
 -- --------------------------------------------------------
 
@@ -1628,19 +1665,22 @@ INSERT INTO `messages` (`id`, `content`, `created`, `modified`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `messages_users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `message_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `receiver_id` int(11) NOT NULL,
-  `view` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  `view` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `messages_users`
 --
 
 INSERT INTO `messages_users` (`id`, `message_id`, `user_id`, `receiver_id`, `view`) VALUES
-(20, 22, 107, 0, 0);
+(20, 22, 107, 0, 0),
+(21, 23, 107, 0, 0),
+(22, 24, 107, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1649,14 +1689,15 @@ INSERT INTO `messages_users` (`id`, `message_id`, `user_id`, `receiver_id`, `vie
 --
 
 CREATE TABLE IF NOT EXISTS `news` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `filename` varchar(255) NOT NULL,
   `status` tinyint(2) NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
-  `modified` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `news`
@@ -1673,13 +1714,14 @@ INSERT INTO `news` (`id`, `title`, `content`, `filename`, `status`, `created`, `
 --
 
 CREATE TABLE IF NOT EXISTS `pages` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `slug` varchar(100) NOT NULL,
   `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `pages`
@@ -1698,13 +1740,14 @@ INSERT INTO `pages` (`id`, `title`, `description`, `slug`, `created`, `modified`
 --
 
 CREATE TABLE IF NOT EXISTS `payout_logs` (
-  `id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `show_id` int(11) NOT NULL,
   `show_entry_id` int(11) NOT NULL,
   `points` int(11) NOT NULL,
   `amount` decimal(10,2) NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1493 DEFAULT CHARSET=latin1;
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1493 ;
 
 --
 -- Dumping data for table `payout_logs`
@@ -3212,12 +3255,13 @@ INSERT INTO `payout_logs` (`id`, `show_id`, `show_entry_id`, `points`, `amount`,
 --
 
 CREATE TABLE IF NOT EXISTS `pet_colors` (
-  `id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `filename` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
-  `modified` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`) COMMENT 'id'
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `pet_colors`
@@ -3233,9 +3277,10 @@ INSERT INTO `pet_colors` (`id`, `name`, `filename`, `created`, `modified`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `product_types` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `product_types`
@@ -3258,7 +3303,7 @@ INSERT INTO `product_types` (`id`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `shops` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `breed_id` bigint(20) DEFAULT NULL,
   `product_id` bigint(20) DEFAULT NULL,
   `pet_type` enum('Dog','Bitch') DEFAULT NULL,
@@ -3267,8 +3312,9 @@ CREATE TABLE IF NOT EXISTS `shops` (
   `color` varchar(50) DEFAULT NULL,
   `description` text,
   `added_date` datetime DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `updated_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `shops`
@@ -3285,15 +3331,16 @@ INSERT INTO `shops` (`id`, `breed_id`, `product_id`, `pet_type`, `cost`, `image`
 --
 
 CREATE TABLE IF NOT EXISTS `shop_background_images` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `cost` varchar(50) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `description` text,
   `added_date` datetime DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `updated_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `shop_background_images`
@@ -3312,15 +3359,16 @@ INSERT INTO `shop_background_images` (`id`, `product_id`, `title`, `cost`, `imag
 --
 
 CREATE TABLE IF NOT EXISTS `shop_breeding_ribbons` (
-  `id` bigint(11) NOT NULL,
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `game_cash` varchar(50) DEFAULT NULL,
   `credits_to_buy` varchar(50) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT '0',
-  `added_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `added_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `shop_breeding_ribbons`
@@ -3336,15 +3384,16 @@ INSERT INTO `shop_breeding_ribbons` (`id`, `product_id`, `title`, `game_cash`, `
 --
 
 CREATE TABLE IF NOT EXISTS `shop_employer_licences` (
-  `id` bigint(11) NOT NULL,
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `validity` varchar(50) DEFAULT NULL,
   `game_cash` varchar(50) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `credits_to_buy` varchar(50) DEFAULT NULL,
-  `added_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `added_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `shop_employer_licences`
@@ -3360,14 +3409,15 @@ INSERT INTO `shop_employer_licences` (`id`, `product_id`, `title`, `validity`, `
 --
 
 CREATE TABLE IF NOT EXISTS `shop_energy_bones` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `cost` int(11) DEFAULT NULL,
   `description` text,
   `image` varchar(255) DEFAULT NULL,
-  `added_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `added_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `shop_energy_bones`
@@ -3383,14 +3433,15 @@ INSERT INTO `shop_energy_bones` (`id`, `product_id`, `title`, `cost`, `descripti
 --
 
 CREATE TABLE IF NOT EXISTS `shop_kennel_spaces` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `cost` int(11) DEFAULT NULL,
   `spaces` varchar(255) DEFAULT NULL,
   `description` text,
-  `added_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `added_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `shop_kennel_spaces`
@@ -3408,15 +3459,16 @@ INSERT INTO `shop_kennel_spaces` (`id`, `product_id`, `title`, `cost`, `spaces`,
 --
 
 CREATE TABLE IF NOT EXISTS `shop_pets` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `breed_id` bigint(20) DEFAULT NULL,
   `product_id` bigint(20) DEFAULT NULL,
   `cost` bigint(20) DEFAULT NULL,
   `color` varchar(50) DEFAULT NULL,
   `description` text,
   `added_date` datetime DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+  `updated_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
 
 --
 -- Dumping data for table `shop_pets`
@@ -3462,7 +3514,7 @@ INSERT INTO `shop_pets` (`id`, `breed_id`, `product_id`, `cost`, `color`, `descr
 --
 
 CREATE TABLE IF NOT EXISTS `shop_retirement_medals` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `game_cash` varchar(50) DEFAULT NULL,
@@ -3470,8 +3522,9 @@ CREATE TABLE IF NOT EXISTS `shop_retirement_medals` (
   `expiration_date` datetime DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT '0',
-  `added_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `added_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `shop_retirement_medals`
@@ -3487,7 +3540,7 @@ INSERT INTO `shop_retirement_medals` (`id`, `product_id`, `title`, `game_cash`, 
 --
 
 CREATE TABLE IF NOT EXISTS `shows` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `show_type` varchar(50) DEFAULT NULL,
   `breed_id` varchar(255) DEFAULT NULL,
@@ -3499,8 +3552,9 @@ CREATE TABLE IF NOT EXISTS `shows` (
   `bonus_payouts` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=pending 1=started 2=completed',
   `remarks` text,
-  `added_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+  `added_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `shows`
@@ -3526,7 +3580,7 @@ INSERT INTO `shows` (`id`, `title`, `show_type`, `breed_id`, `start_date`, `end_
 --
 
 CREATE TABLE IF NOT EXISTS `show_entries` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `show_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `game_breed_id` bigint(20) DEFAULT NULL,
@@ -3536,8 +3590,9 @@ CREATE TABLE IF NOT EXISTS `show_entries` (
   `points_awarded` int(11) DEFAULT NULL,
   `position` int(11) DEFAULT NULL,
   `remarks` varchar(255) DEFAULT NULL,
-  `date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `show_entries`
@@ -3574,12 +3629,13 @@ INSERT INTO `show_entries` (`id`, `show_id`, `user_id`, `game_breed_id`, `age`, 
 --
 
 CREATE TABLE IF NOT EXISTS `show_winners` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `show_id` int(11) NOT NULL,
   `show_entry_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `show_winners`
@@ -3616,12 +3672,13 @@ INSERT INTO `show_winners` (`id`, `show_id`, `show_entry_id`, `title`, `created`
 --
 
 CREATE TABLE IF NOT EXISTS `trainer_log` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` text,
   `training_fields` text,
   `applied_job_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `trainer_log`
@@ -3667,15 +3724,16 @@ INSERT INTO `trainer_log` (`id`, `category`, `training_fields`, `applied_job_id`
 --
 
 CREATE TABLE IF NOT EXISTS `transactions` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `to_user_id` int(11) NOT NULL,
   `type` enum('credit','fund') NOT NULL,
   `description` varchar(255) NOT NULL,
   `transaction_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `amount` int(11) NOT NULL,
-  `from_user_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `from_user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -3684,7 +3742,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL COMMENT 'Auto increment field',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Auto increment field',
   `first_name` varchar(100) NOT NULL COMMENT 'This field is used to save the first name of user',
   `last_name` varchar(100) NOT NULL COMMENT 'This field is used to save the last name of user',
   `other_name` varchar(255) DEFAULT NULL COMMENT 'field used for affiliate name',
@@ -3692,11 +3750,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(100) NOT NULL COMMENT 'This field is used to save the email address of user',
   `password` varchar(100) NOT NULL COMMENT 'This field is used to save the password of user',
   `role` enum('user','admin') NOT NULL DEFAULT 'user' COMMENT 'This field is used to save the role type of user',
-  `user_type` varchar(10) NOT NULL,
+  `user_type` varchar(10) DEFAULT NULL,
   `gender` enum('Male','Female') DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,
   `mobile_number` varchar(100) NOT NULL,
-  `photo` varchar(100) NOT NULL COMMENT 'User profile image',
+  `photo` varchar(100) DEFAULT NULL COMMENT 'User profile image',
   `funds` bigint(20) DEFAULT NULL,
   `credits` bigint(20) DEFAULT NULL,
   `kennel_name` varchar(255) DEFAULT NULL,
@@ -3707,15 +3765,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `kennel_desc` text,
   `kennel_banner` varchar(255) DEFAULT NULL,
   `vet_banner` varchar(255) DEFAULT NULL,
-  `shop_banner` varchar(255) NOT NULL,
+  `shop_banner` varchar(255) DEFAULT NULL,
   `energy_bones` int(11) DEFAULT NULL,
   `profile_description` text,
   `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0 : inactive, 1: active , 2: deleted',
   `verification_code` varchar(100) NOT NULL DEFAULT 'NULL',
   `created` datetime NOT NULL COMMENT 'This field is used to save the creation date of user registration',
   `modified` datetime NOT NULL COMMENT 'This field is used to save the modification date of user profile',
-  `last_activity` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1 COMMENT='This table is used to save the record of users';
+  `last_activity` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='This table is used to save the record of users' AUTO_INCREMENT=112 ;
 
 --
 -- Dumping data for table `users`
@@ -3723,10 +3782,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `other_name`, `username`, `email`, `password`, `role`, `user_type`, `gender`, `date_of_birth`, `mobile_number`, `photo`, `funds`, `credits`, `kennel_name`, `kennel_xp`, `training_xp`, `handling_xp`, `kennel_spaces`, `kennel_desc`, `kennel_banner`, `vet_banner`, `shop_banner`, `energy_bones`, `profile_description`, `status`, `verification_code`, `created`, `modified`, `last_activity`) VALUES
 (38, 'Admin', 'admin', NULL, NULL, 'purgitoryfallen@gmail.com', 'fceeb5c84e1de10ab39270f84a1f919120db2609', 'admin', '', NULL, NULL, '4324324', 'images1.jpeg', 50, 1007, NULL, '0', 0, 0, '0', NULL, NULL, '8d1a401c71930a3f25ed38474a244ab6.jpg', '715061c57b810d81cbc2feb83d812d61.jpg', NULL, NULL, 1, '557b2162-e35c-412e-87bb-111417a9f72b', '2013-08-20 09:08:26', '2016-09-19 20:01:20', NULL),
-(107, 'Admin', 'Admin', NULL, 'Admin', 'kiara1cat@gmail.com', 'fceeb5c84e1de10ab39270f84a1f919120db2609', 'user', '', NULL, NULL, '', '72153d7e6a0fa61b307e392b2c36c53f.png', 6340, 297, 'Best of Pedigree', '3200', 0, 0, '7', '', '78322d476dd1759129baaa3e0f340bb2.jpg', NULL, '', NULL, NULL, 1, 'NULL', '2016-09-20 02:11:58', '2017-02-04 11:00:00', '2017-02-04 11:00:00'),
+(107, 'Admin', 'Admin', NULL, 'Admin', 'kiara1cat@gmail.com', 'fceeb5c84e1de10ab39270f84a1f919120db2609', 'user', '', NULL, NULL, '', '72153d7e6a0fa61b307e392b2c36c53f.png', 4339, 297, 'Best of Pedigree', '3200', 0, 0, '7', '', '78322d476dd1759129baaa3e0f340bb2.jpg', NULL, '', NULL, NULL, 1, 'NULL', '2016-09-20 02:11:58', '2017-03-21 19:14:49', '2017-03-21 19:14:49'),
 (108, 'Eric', 'S', NULL, 'elswanigan', 'info@elswanigantech.com', '2cf090b847964b45e12bbfa37c932374911a9e5e', 'user', '', NULL, NULL, '', '', 2500, 5000, 'elstech', '2500', 0, 0, '5', NULL, NULL, NULL, '', NULL, NULL, 1, 'NULL', '2016-09-20 12:00:32', '2016-09-20 12:00:32', NULL),
-(109, 'Vivek', 'sh', NULL, 'vb123', 'vb@yopmail.com', 'fceeb5c84e1de10ab39270f84a1f919120db2609', 'user', '', NULL, NULL, '123456789', '', 5200, 5000, 'nu', '2500', 0, 0, '5', NULL, NULL, NULL, '', 5, NULL, 1, 'NULL', '2016-09-22 06:12:39', '2017-02-04 11:11:29', '2017-02-04 11:11:29'),
-(110, 'vivek', 'sf', NULL, 'vbn123', 'vbn@yopmail.com', '3dbacc0601b83d7d7b25df81f40bfae5cb55140e', 'user', '', NULL, NULL, '123456789', '', 2500, 5000, 'kl', '2500', 0, 0, '5', NULL, NULL, NULL, '', NULL, NULL, 1, 'NULL', '2016-09-22 06:14:31', '2016-09-22 06:14:31', NULL);
+(109, 'Vivek', 'sh', NULL, 'vb123', 'vb@yopmail.com', 'fceeb5c84e1de10ab39270f84a1f919120db2609', 'user', '', NULL, NULL, '123456789', '', 5201, 5000, 'nu', '2500', 0, 0, '5', NULL, NULL, NULL, '', 5, NULL, 1, 'NULL', '2016-09-22 06:12:39', '2017-03-12 19:12:50', '2017-02-04 11:11:29'),
+(110, 'vivek', 'sf', NULL, 'vbn123', 'vbn@yopmail.com', '3dbacc0601b83d7d7b25df81f40bfae5cb55140e', 'user', '', NULL, NULL, '123456789', '', 2500, 5000, 'kl', '2500', 0, 0, '5', NULL, NULL, NULL, '', NULL, NULL, 1, 'NULL', '2016-09-22 06:14:31', '2016-09-22 06:14:31', NULL),
+(111, 'Vivek', 'sh', NULL, 'vs1', 'vs1@yopmail.com', '2c6bb98356b741753d013eaca7365c14916f9afd', 'user', NULL, NULL, NULL, '123456789', NULL, 2500, 5000, 'vs1', '2500', 0, 0, '5', NULL, NULL, NULL, NULL, NULL, NULL, 1, 'NULL', '2017-03-22 17:50:06', '2017-03-22 17:50:12', '2017-03-22 17:50:12');
 
 -- --------------------------------------------------------
 
@@ -3735,14 +3795,15 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `other_name`, `username`, 
 --
 
 CREATE TABLE IF NOT EXISTS `users_discussions` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `discussion_id` int(11) NOT NULL,
   `sender_id` int(11) NOT NULL,
   `received_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0' COMMENT '1=>view,2=>rec_del,3=>sender_del',
   `created` datetime NOT NULL,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `users_discussions`
@@ -3765,10 +3826,11 @@ INSERT INTO `users_discussions` (`id`, `discussion_id`, `sender_id`, `received_i
 --
 
 CREATE TABLE IF NOT EXISTS `user_achievements` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `achievement_id` int(11) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `achievement_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_achievements`
@@ -3785,10 +3847,11 @@ INSERT INTO `user_achievements` (`id`, `user_id`, `achievement_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user_awards` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `award_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `award_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -3797,14 +3860,15 @@ CREATE TABLE IF NOT EXISTS `user_awards` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_bg_images` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL,
   `background_img_id` bigint(20) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `cost` int(11) DEFAULT NULL,
   `purchased_date` datetime DEFAULT NULL,
-  `dog_name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+  `dog_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `user_bg_images`
@@ -3856,14 +3920,15 @@ INSERT INTO `user_bg_images` (`id`, `user_id`, `background_img_id`, `image`, `co
 --
 
 CREATE TABLE IF NOT EXISTS `user_breeding_ribbons` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `breeding_ribbon_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `game_breed_id` bigint(20) DEFAULT NULL,
   `cost` int(11) DEFAULT NULL,
   `purchased_date` datetime DEFAULT NULL,
-  `dog_name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+  `dog_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `user_breeding_ribbons`
@@ -3912,13 +3977,14 @@ INSERT INTO `user_breeding_ribbons` (`id`, `breeding_ribbon_id`, `user_id`, `gam
 --
 
 CREATE TABLE IF NOT EXISTS `user_energy_bones` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `energy_bone_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `cost` int(11) DEFAULT NULL,
   `purchased_date` datetime DEFAULT NULL,
-  `dog_name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+  `dog_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 --
 -- Dumping data for table `user_energy_bones`
@@ -3971,14 +4037,15 @@ INSERT INTO `user_energy_bones` (`id`, `energy_bone_id`, `user_id`, `cost`, `pur
 --
 
 CREATE TABLE IF NOT EXISTS `user_kennel_spaces` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `kennel_space_id` int(11) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `spaces` varchar(50) DEFAULT NULL,
   `cost` int(11) DEFAULT NULL,
   `purchase_date` datetime DEFAULT NULL,
-  `dog_name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+  `dog_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `user_kennel_spaces`
@@ -4018,12 +4085,13 @@ INSERT INTO `user_kennel_spaces` (`id`, `kennel_space_id`, `user_id`, `spaces`, 
 --
 
 CREATE TABLE IF NOT EXISTS `user_licences` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `employer_licence_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `cost` varchar(50) DEFAULT NULL,
-  `purchased_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `purchased_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `user_licences`
@@ -4039,7 +4107,9 @@ INSERT INTO `user_licences` (`id`, `employer_licence_id`, `user_id`, `cost`, `pu
 (7, 5, 79, '1', '2016-08-15 15:47:52'),
 (9, 3, 105, '400', '2016-08-23 04:18:40'),
 (10, 6, 107, '3', '2016-09-20 02:28:40'),
-(11, 6, 107, '3', '2016-12-27 17:51:22');
+(11, 6, 107, '3', '2016-12-27 17:51:22'),
+(12, 6, 107, '3', '2017-03-15 16:49:38'),
+(13, 6, 107, '3', '2017-03-15 16:49:55');
 
 -- --------------------------------------------------------
 
@@ -4048,13 +4118,14 @@ INSERT INTO `user_licences` (`id`, `employer_licence_id`, `user_id`, `cost`, `pu
 --
 
 CREATE TABLE IF NOT EXISTS `user_retirement_medals` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `retirement_medal_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `cost` int(11) DEFAULT NULL,
   `purchased_date` datetime DEFAULT NULL,
-  `dog_name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `dog_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `user_retirement_medals`
@@ -4078,7 +4149,7 @@ INSERT INTO `user_retirement_medals` (`id`, `retirement_medal_id`, `user_id`, `c
 --
 
 CREATE TABLE IF NOT EXISTS `veterinarians` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `shots_checkups` int(11) NOT NULL,
   `b_locus_testing` int(11) NOT NULL DEFAULT '0',
@@ -4088,8 +4159,9 @@ CREATE TABLE IF NOT EXISTS `veterinarians` (
   `health_testing` int(11) NOT NULL,
   `spay_neuter` int(11) NOT NULL,
   `groomer` int(11) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `veterinarians`
@@ -4098,7 +4170,10 @@ CREATE TABLE IF NOT EXISTS `veterinarians` (
 INSERT INTO `veterinarians` (`id`, `user_id`, `shots_checkups`, `b_locus_testing`, `d_locus_testing`, `e_locus_testing`, `s_locus_testing`, `health_testing`, `spay_neuter`, `groomer`, `created`) VALUES
 (1, 107, 0, 0, 0, 0, 0, 1, 0, 0, '2016-09-29 14:11:00'),
 (2, 107, 0, 0, 0, 0, 0, 0, 1, 0, '2017-01-21 09:22:28'),
-(3, 107, 0, 0, 0, 0, 0, 0, 0, 1, '2017-01-21 09:59:16');
+(3, 107, 0, 0, 0, 0, 0, 0, 0, 1, '2017-01-21 09:59:16'),
+(4, 107, 1, 0, 0, 0, 0, 0, 0, 0, '2017-03-16 00:14:54'),
+(5, 107, 0, 1, 0, 0, 0, 0, 0, 0, '2017-03-16 00:15:23'),
+(6, 107, 0, 0, 0, 0, 0, 0, 0, 1, '2017-03-16 00:17:32');
 
 -- --------------------------------------------------------
 
@@ -4107,13 +4182,14 @@ INSERT INTO `veterinarians` (`id`, `user_id`, `shots_checkups`, `b_locus_testing
 --
 
 CREATE TABLE IF NOT EXISTS `vet_costs` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `shots_checkups` int(11) NOT NULL,
   `DNA_testing` int(11) NOT NULL,
   `health_testing` int(11) NOT NULL,
   `spay_neuter` int(11) NOT NULL,
-  `groomer` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `groomer` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -4122,9 +4198,10 @@ CREATE TABLE IF NOT EXISTS `vet_costs` (
 --
 
 CREATE TABLE IF NOT EXISTS `_product_types` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `_product_types`
@@ -4137,586 +4214,6 @@ INSERT INTO `_product_types` (`id`, `name`) VALUES
 (4, 'Breeding Ribbon'),
 (5, 'Retirement Medal');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `aboutuses`
---
-ALTER TABLE `aboutuses`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `achievements`
---
-ALTER TABLE `achievements`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `admin_messages`
---
-ALTER TABLE `admin_messages`
-  ADD PRIMARY KEY (`id_msg`);
-
---
--- Indexes for table `applied_jobs`
---
-ALTER TABLE `applied_jobs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `awards`
---
-ALTER TABLE `awards`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `breeds`
---
-ALTER TABLE `breeds`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `breed_images`
---
-ALTER TABLE `breed_images`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `discussions`
---
-ALTER TABLE `discussions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dog_skills`
---
-ALTER TABLE `dog_skills`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `emailtemplates`
---
-ALTER TABLE `emailtemplates`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `faqs`
---
-ALTER TABLE `faqs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `forums`
---
-ALTER TABLE `forums`
-  ADD PRIMARY KEY (`forum_id`);
-
---
--- Indexes for table `forum_comments`
---
-ALTER TABLE `forum_comments`
-  ADD PRIMARY KEY (`forum_comment_id`);
-
---
--- Indexes for table `forum_votes`
---
-ALTER TABLE `forum_votes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `game_breeds`
---
-ALTER TABLE `game_breeds`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `game_breeds-bk`
---
-ALTER TABLE `game_breeds-bk`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `game_funds`
---
-ALTER TABLE `game_funds`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `jobs`
---
-ALTER TABLE `jobs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `manage_banners`
---
-ALTER TABLE `manage_banners`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `messages`
---
-ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `messages_users`
---
-ALTER TABLE `messages_users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `news`
---
-ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pages`
---
-ALTER TABLE `pages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `payout_logs`
---
-ALTER TABLE `payout_logs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pet_colors`
---
-ALTER TABLE `pet_colors`
-  ADD PRIMARY KEY (`id`) COMMENT 'id';
-
---
--- Indexes for table `product_types`
---
-ALTER TABLE `product_types`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `shops`
---
-ALTER TABLE `shops`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `shop_background_images`
---
-ALTER TABLE `shop_background_images`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `shop_breeding_ribbons`
---
-ALTER TABLE `shop_breeding_ribbons`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `shop_employer_licences`
---
-ALTER TABLE `shop_employer_licences`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `shop_energy_bones`
---
-ALTER TABLE `shop_energy_bones`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `shop_kennel_spaces`
---
-ALTER TABLE `shop_kennel_spaces`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `shop_pets`
---
-ALTER TABLE `shop_pets`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `shop_retirement_medals`
---
-ALTER TABLE `shop_retirement_medals`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `shows`
---
-ALTER TABLE `shows`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `show_entries`
---
-ALTER TABLE `show_entries`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `show_winners`
---
-ALTER TABLE `show_winners`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `trainer_log`
---
-ALTER TABLE `trainer_log`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `transactions`
---
-ALTER TABLE `transactions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users_discussions`
---
-ALTER TABLE `users_discussions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_achievements`
---
-ALTER TABLE `user_achievements`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_awards`
---
-ALTER TABLE `user_awards`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_bg_images`
---
-ALTER TABLE `user_bg_images`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_breeding_ribbons`
---
-ALTER TABLE `user_breeding_ribbons`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_energy_bones`
---
-ALTER TABLE `user_energy_bones`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_kennel_spaces`
---
-ALTER TABLE `user_kennel_spaces`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_licences`
---
-ALTER TABLE `user_licences`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_retirement_medals`
---
-ALTER TABLE `user_retirement_medals`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `veterinarians`
---
-ALTER TABLE `veterinarians`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `vet_costs`
---
-ALTER TABLE `vet_costs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `_product_types`
---
-ALTER TABLE `_product_types`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `aboutuses`
---
-ALTER TABLE `aboutuses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `achievements`
---
-ALTER TABLE `achievements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
---
--- AUTO_INCREMENT for table `admin_messages`
---
-ALTER TABLE `admin_messages`
-  MODIFY `id_msg` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `applied_jobs`
---
-ALTER TABLE `applied_jobs`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `awards`
---
-ALTER TABLE `awards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
---
--- AUTO_INCREMENT for table `breeds`
---
-ALTER TABLE `breeds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
---
--- AUTO_INCREMENT for table `breed_images`
---
-ALTER TABLE `breed_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=382;
---
--- AUTO_INCREMENT for table `discussions`
---
-ALTER TABLE `discussions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `dog_skills`
---
-ALTER TABLE `dog_skills`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=485;
---
--- AUTO_INCREMENT for table `emailtemplates`
---
-ALTER TABLE `emailtemplates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
---
--- AUTO_INCREMENT for table `faqs`
---
-ALTER TABLE `faqs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `forums`
---
-ALTER TABLE `forums`
-  MODIFY `forum_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `forum_comments`
---
-ALTER TABLE `forum_comments`
-  MODIFY `forum_comment_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `forum_votes`
---
-ALTER TABLE `forum_votes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `game_breeds`
---
-ALTER TABLE `game_breeds`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `game_breeds-bk`
---
-ALTER TABLE `game_breeds-bk`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
---
--- AUTO_INCREMENT for table `game_funds`
---
-ALTER TABLE `game_funds`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `jobs`
---
-ALTER TABLE `jobs`
-  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `manage_banners`
---
-ALTER TABLE `manage_banners`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `messages`
---
-ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
---
--- AUTO_INCREMENT for table `messages_users`
---
-ALTER TABLE `messages_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
---
--- AUTO_INCREMENT for table `news`
---
-ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `pages`
---
-ALTER TABLE `pages`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `payout_logs`
---
-ALTER TABLE `payout_logs`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1493;
---
--- AUTO_INCREMENT for table `pet_colors`
---
-ALTER TABLE `pet_colors`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `product_types`
---
-ALTER TABLE `product_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `shops`
---
-ALTER TABLE `shops`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `shop_background_images`
---
-ALTER TABLE `shop_background_images`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `shop_breeding_ribbons`
---
-ALTER TABLE `shop_breeding_ribbons`
-  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `shop_employer_licences`
---
-ALTER TABLE `shop_employer_licences`
-  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `shop_energy_bones`
---
-ALTER TABLE `shop_energy_bones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `shop_kennel_spaces`
---
-ALTER TABLE `shop_kennel_spaces`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `shop_pets`
---
-ALTER TABLE `shop_pets`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
---
--- AUTO_INCREMENT for table `shop_retirement_medals`
---
-ALTER TABLE `shop_retirement_medals`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `shows`
---
-ALTER TABLE `shows`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
---
--- AUTO_INCREMENT for table `show_entries`
---
-ALTER TABLE `show_entries`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
---
--- AUTO_INCREMENT for table `show_winners`
---
-ALTER TABLE `show_winners`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
---
--- AUTO_INCREMENT for table `trainer_log`
---
-ALTER TABLE `trainer_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
---
--- AUTO_INCREMENT for table `transactions`
---
-ALTER TABLE `transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Auto increment field',AUTO_INCREMENT=111;
---
--- AUTO_INCREMENT for table `users_discussions`
---
-ALTER TABLE `users_discussions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
---
--- AUTO_INCREMENT for table `user_achievements`
---
-ALTER TABLE `user_achievements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `user_awards`
---
-ALTER TABLE `user_awards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_bg_images`
---
-ALTER TABLE `user_bg_images`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
---
--- AUTO_INCREMENT for table `user_breeding_ribbons`
---
-ALTER TABLE `user_breeding_ribbons`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
---
--- AUTO_INCREMENT for table `user_energy_bones`
---
-ALTER TABLE `user_energy_bones`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
---
--- AUTO_INCREMENT for table `user_kennel_spaces`
---
-ALTER TABLE `user_kennel_spaces`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
---
--- AUTO_INCREMENT for table `user_licences`
---
-ALTER TABLE `user_licences`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `user_retirement_medals`
---
-ALTER TABLE `user_retirement_medals`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `veterinarians`
---
-ALTER TABLE `veterinarians`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `vet_costs`
---
-ALTER TABLE `vet_costs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `_product_types`
---
-ALTER TABLE `_product_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

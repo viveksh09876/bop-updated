@@ -167,8 +167,10 @@ $this->set("banners",$this->ManageBanner->find("first"));
            if($this->AppliedJob->saveField('status',$status)){
 			   
 			   if($status == 'Accepted') {
+					$accepted_date = date('Y-m-d H:i:s');
 					$this->Job->id = $job_id;
-					$this->Job->save(array('status' => 1));
+					$this->Job->save(array('status' => 1, 'accepted_date' => $accepted_date));
+					
 			   }
 							   
                $this->Session->setFlash(__('Applicant '.$status.' Successfully. '),'default',array('class'=>'success'));
@@ -187,6 +189,88 @@ $this->set("banners",$this->ManageBanner->find("first"));
           // echo '<pre/>';
             //print_r($this->paginate('AppliedJob')); die;
         }
+		
+		public function get_release_amount($jobid) {
+			
+			$this->layout = 'ajax';
+			$this->loadModel('Job');
+			$job = $this->Job->findById($jobid);
+			
+			if(!empty($job)) {
+				
+				if($job['Job']['status'] != 3) {
+					
+					if(!empty($job['Job']['job_start_time'])) {
+						
+						$perc = $job['Job']['progress']/$job['Job']['training_clicks'];
+						$rel_amount = $job['Job']['salary']*$perc;
+						
+					}else{
+						$rel_amount = $job['Job']['salary'];
+					}
+					
+				}else{
+					$rel_amount = $job['Job']['salary'];
+				}
+				
+				$this->set('jobid', $jobid);
+				
+				$this->set('employee_id', $job['AppliedJob'][0]['applied_by']);
+				$this->set('release_amount', $rel_amount);
+				$this->render('release_amount');
+			}
+			
+		}
+		
+		
+		public function release_amount() {
+			
+			if(!empty($this->data)) {
+				
+				$this->loadModel('User');
+				$user = $this->User->findById($this->Auth->user('id'));
+				if($user['User']['funds'] >= $this->data['rel'] ) {
+					
+					$employee = $this->User->findById($this->data['emp']);
+					
+					$rem_funds = $user['User']['funds'] - $this->data['rel'];
+					
+					$this->User->id = $user['User']['id'];
+					$this->User->save(array('funds' => $rem_funds));
+					
+					$this->User->id = $employee['User']['id'];
+					$this->User->save(array('funds' => ($employee['User']['funds'] + intval($this->data['rel']))));
+					
+					$this->loadModel('Job');
+					$job = $this->Job->findById($this->data['jobid']);
+					
+					$released_amount = $job['Job']['amount_released'] + $this->data['rel'];
+					$this->Job->id = $job['Job']['id'];
+					$this->Job->save(array('amount_released' => $released_amount));
+					echo 'success'; die;
+					
+				}else{
+					echo 'insufficent_funds'; die;
+				}
+				
+			}
+			
+		}
+		
+		
+		public function mark_complete() {
+			
+			if(isset($this->data['jobid']) && !empty($this->data['jobid'])) {
+				
+				$this->loadModel('Job');
+				$this->Job->id = $this->data['jobid'];
+				$this->Job->save(array('status' => 3));
+				echo 'success'; die;
+			}
+			
+		}
+		
+		
 
         private function isCompleted($dogSkills, $skills){
         	$isCompleted = false;
@@ -348,6 +432,7 @@ $this->set("banners",$this->ManageBanner->find("first"));
 			
 			$arr[$j] = array(
 							$aj['Job']['id'],
+							$aj['Job']['title'],
 							$aj['Job']['training_clicks'],
 							$aj['Job']['progress'],
 							$categories,
@@ -379,7 +464,8 @@ function getalljobs() {
 
             $data .= '[
                   "' . $aj['Job']['id'] . '",
-                  "' . $aj['Job']['training_clicks'] . '",
+                  "' . $aj['Job']['title'] . '",
+				  "' . $aj['Job']['training_clicks'] . '",
                   "' . $aj['Job']['categories'] . '",
                   "$' . $aj['Job']['salary'] . '",
                   "<a href='.$this->webroot.'jobs/apply/'.$aj['Job']['id'].' class=btn btn-primary>APPLY</a>"

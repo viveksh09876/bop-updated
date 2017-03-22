@@ -1686,3 +1686,278 @@ Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
 Stack Trace:
 #0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-03-11 15:36:01 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-11 15:42:49 Error: [MissingActionException] Action JobsController::get_release_amount() could not be found.
+Exception Attributes: array (
+  'controller' => 'JobsController',
+  'action' => 'get_release_amount',
+)
+Request URL: /bop/bop-updated/beta/jobs/get_release_amount/3
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(JobsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-03-11 15:49:03 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-11 15:49:03 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-11 15:49:10 Error: [MissingActionException] Action JobsController::get_release_amount() could not be found.
+Exception Attributes: array (
+  'controller' => 'JobsController',
+  'action' => 'get_release_amount',
+)
+Request URL: /bop/bop-updated/beta/jobs/get_release_amount/3
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(JobsController), Object(CakeRequest), Object(CakeResponse))
+#2 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-03-12 17:55:10 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 17:55:10 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:06:11 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:06:11 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:15:01 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:15:01 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:43:57 Error: Fatal Error (4): syntax error, unexpected '$this' (T_VARIABLE) in [D:\xampp\htdocs\bop\bop-updated\beta\app\Controller\JobsController.php, line 236]
+2017-03-12 18:43:57 Error: [FatalErrorException] syntax error, unexpected '$this' (T_VARIABLE)
+Request URL: /bop/bop-updated/beta/jobs/posted_jobs
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 236)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 236, Array)
+#2 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\xampp\\htdocs...', 236, Array)
+#3 D:\xampp\htdocs\bop\bop-updated\beta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-03-12 18:44:11 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:44:11 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:45:17 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:45:17 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:45:29 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:45:29 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:45:55 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:45:56 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:48:17 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:48:17 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:49:03 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:49:03 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:49:11 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:49:11 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:50:24 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/css/bootstrap.min.css.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-12 18:50:24 Error: [MissingControllerException] Controller class DistController could not be found.
+Exception Attributes: array (
+  'class' => 'DistController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/dist/lib/js/jquery.min.map
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-21 14:32:00 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-21 14:32:00 Error: [MissingControllerException] Controller class Favicon.icoController could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.icoController',
+  'plugin' => NULL,
+)
+Request URL: /bop/bop-updated/beta/favicon.ico
+Stack Trace:
+#0 D:\xampp\htdocs\bop\bop-updated\beta\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
